@@ -3,8 +3,10 @@
 import React from "react";
 import { Instagram, Twitter, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
   return (
     <footer className="py-16 px-6 bg-[#FDF8ED]">
       <div className="max-w-6xl mx-auto">
@@ -16,7 +18,7 @@ export default function Footer() {
               alt="Relengo"
               className="h-16 w-auto mb-2 mx-auto md:mx-0"
             />
-            <p className="text-gray-600">Access more. Own less. Live better.</p>
+            <p className="text-gray-600">{t('tagline')}</p>
           </div>
 
           {/* Social Links */}
@@ -37,7 +39,7 @@ export default function Footer() {
                 href: "https://www.instagram.com/relengo.app?igsh=Y3pmeDRvMHdnM3F4&utm_source=qr",
                 label: "LinkedIn",
               },
-              { icon: Mail, href: "mailto:hello@relengo.app", label: "Email" },
+              { icon: Mail, href: "mailto:hello@relengo.app", label: t('socialLinkEmailLabel') },
             ].map((social) => (
               <a
                 key={social.label}
@@ -68,25 +70,25 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© 2026 Relengo. All rights reserved.</p>
+          <p>{t('copyright')}</p>
           <div className="flex gap-6">
             <Link
-              href="/privacy"
+              href={`/${t('privacyPolicyHref')}`}
               className="hover:text-[#1A1A1A] transition-colors"
             >
-              Privacy Policy
+              {t('privacyPolicy')}
             </Link>
             <Link
-              href="/terms"
+              href={`/${t('termsOfServiceHref')}`}
               className="hover:text-[#1A1A1A] transition-colors"
             >
-              Terms of Service
+              {t('termsOfService')}
             </Link>
-            <a href="#" className="hover:text-[#1A1A1A] transition-colors">
-              Contact
+            <a href={`/${t('contactHref')}`} className="hover:text-[#1A1A1A] transition-colors">
+              {t('contact')}
             </a>
-            <Link href="/de" className="hover:text-[#1A1A1A] transition-colors">
-              🇩🇪 Deutsch
+            <Link href={t('languageSwitcherHref')} className="hover:text-[#1A1A1A] transition-colors">
+              {t('languageSwitcher')}
             </Link>
           </div>
         </div>

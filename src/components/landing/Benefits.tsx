@@ -1,43 +1,38 @@
 'use client';
 import React from "react";
 import { Leaf, Wallet, Users, ShieldCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const benefits = [
+const baseBenefits = [
   {
     icon: Wallet,
-    title: "Save Money",
-    description:
-      "Why buy something you'll use twice? Rent it for a fraction of the cost.",
-    stat: "Save up to 90%",
     color: "#FFC843",
   },
   {
     icon: Leaf,
-    title: "Live Sustainably",
-    description:
-      "Reduce waste and environmental impact by sharing resources in your community.",
-    stat: "Less waste",
     color: "#54B9D1",
   },
   {
     icon: Users,
-    title: "Build Community",
-    description:
-      "Connect with neighbors, share skills, and strengthen local bonds.",
-    stat: "Real connections",
     color: "#F5A4B8",
   },
   {
-    icon: ShieldCheck,
-    title: "Stay Protected",
-    description:
-      "Every rental is backed by our protection policy for peace of mind.",
-    stat: "100% secure",
+    icon: ShieldCheck, // Using ShieldCheck as default, assuming it's the desired icon
     color: "#F68B28",
   },
 ];
 
 export default function Benefits() {
+  const t = useTranslations("Benefits");
+  const translatedBenefits = t.raw('list');
+
+  const benefits = baseBenefits.map((baseBenefit, index) => ({
+    ...baseBenefit,
+    title: translatedBenefits[index].title,
+    description: translatedBenefits[index].description,
+    stat: translatedBenefits[index].stat,
+  }));
+
   return (
     <section className="bg-[#F8DEE4] px-6 py-24 relative overflow-hidden">
       {/* Background decoration */}
@@ -48,14 +43,13 @@ export default function Benefits() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <span className="text-[#FFFFF] text-3xl font-semibold uppercase tracking-wide">
-            WHY RELENGO
+            {t('subtitle')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            A better way to access
+            {t('title')}
           </h2>
           <p className="text-gray-600 mx-auto text-xl max-w-2xl">
-            Relengo isn't just an app—it's a movement toward smarter, more
-            connected living.
+            {t('description')}
           </p>
         </div>
 

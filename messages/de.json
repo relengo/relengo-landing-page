@@ -1,0 +1,202 @@
+{
+  "Footer": {
+    "tagline": "Mehr nutzen. Weniger besitzen. Besser leben.",
+    "socialLinkEmailLabel": "E-Mail",
+    "copyright": "© 2026 Relengo. Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutz",
+    "privacyPolicyHref": "datenschutz",
+    "termsOfService": "AGB",
+    "termsOfServiceHref": "agb",
+    "contact": "Kontakt",
+    "contactHref": "#",
+    "languageSwitcher": "🇬🇧 English",
+    "languageSwitcherHref": "/"
+  },
+  "Navbar": {
+    "howItWorks": "So funktioniert's",
+    "categories": "Kategorien",
+    "about": "Über uns",
+    "joinWaitlist": "Warteliste beitreten",
+    "languageSwitcherDesktop": "🇬🇧 EN",
+    "languageSwitcherMobile": "🇬🇧 English",
+    "languageSwitcherHref": "/"
+  },
+  "HeroSection": {
+    "badgeText": "Bald verfügbar für iOS & Android",
+    "mainHeadlinePart1": "Weniger besitzen.",
+    "mainHeadlinePart2": "Mehr nutzen",
+    "subheadlinePart1": "Relengo verbindet dich mit Menschen in deiner Nähe, um Outdoor-Ausrüstung, Kameras, Werkzeuge und mehr zu verleihen und zu mieten.",
+    "subheadlinePart2": "Wert bleibt in Bewegung.",
+    "formPlaceholderName": "Dein Name",
+    "formPlaceholderEmail": "Deine E-Mail-Adresse",
+    "formPlaceholderPhone": "Telefonnummer",
+    "buttonJoinWaitlist": "Warteliste beitreten",
+    "buttonJoining": "Wird eingetragen...",
+    "waitlistCountText": "Schließe dich 1000+ anderen an, die auf frühen Zugang warten",
+    "categoryPills": [
+      "Outdoor-Ausrüstung",
+      "Fotografie",
+      "Heimwerken",
+      "Sportgeräte"
+    ],
+    "toastSuccess": "Du bist auf der Liste! Wir melden uns bald."
+  },
+  "HowItWorks": {
+    "subtitle": "So funktioniert's",
+    "title": "So einfach geht's",
+    "description": "In drei einfachen Schritten leihen oder verleihen – ohne Komplikationen.",
+    "steps": [
+      {
+        "title": "Durchstöbern & Finden",
+        "description": "Entdecke Artikel in deiner Nähe. Filtere nach Kategorie, Preis und Verfügbarkeit."
+      },
+      {
+        "title": "Verbinden & Vereinbaren",
+        "description": "Kontaktiere den Besitzer direkt. Vereinbart Details und Übergabe."
+      },
+      {
+        "title": "Nutzen & Bewerten",
+        "description": "Genieße dein Erlebnis und teile deine Bewertung mit der Community."
+      }
+    ]
+  },
+  "Categories": {
+    "subtitle": "Kategorien",
+    "title": "Was möchtest du leihen?",
+    "description": "Von Outdoor-Ausrüstung bis Party-Zubehör – finde alles, was du brauchst.",
+    "list": [
+      {
+        "name": "Do It Yourself",
+        "items": "Malerbedarf, Renovierung, Bastelmaterial"
+      },
+      {
+        "name": "Event Setup",
+        "items": "Party-Equipment, Dekoration, Beleuchtung"
+      },
+      {
+        "name": "Sports",
+        "items": "Fahrräder, Surfbretter, Skiausrüstung, Golf"
+      },
+      {
+        "name": "Entertainment",
+        "items": "Spielkonsolen, Brettspiele, Spielzeug"
+      },
+      {
+        "name": "Music Production",
+        "items": "Instrumente, Lautsprecher, Audio-Equipment"
+      },
+      {
+        "name": "Outdoor Activities",
+        "items": "Zelte, Kajaks, Campingausrüstung, Wandern"
+      },
+      {
+        "name": "Photography",
+        "items": "Kameras, Objektive, Drohnen, Beleuchtung"
+      },
+      {
+        "name": "Construction Work",
+        "items": "Elektrowerkzeuge, Garten, Heimwerken"
+      },
+      {
+        "name": "Travel",
+        "items": "Gepäck, Reisezubehör, Karten"
+      }
+    ]
+  },
+  "AppPreview": {
+    "subtitle": "Die App",
+    "title": "Warm, einfach und intuitiv",
+    "description": "Ein klares Interface für mühelose Navigation und Übersichtlichkeit.",
+    "phoneAlt": "Relengo App Vorschau",
+    "features": [
+      {
+        "title": "Verdiene Geld mit deinen Sachen in Minuten",
+        "description": "Mach ein Foto von dem, was du zu Hause herumliegen hast, lade es auf Relengo hoch und fange an, mehr Geld zu verdienen!"
+      },
+      {
+        "title": "Miete, was du brauchst, mit nur wenigen Klicks",
+        "description": "Stelle eine Mietanfrage mit zwei Klicks und erhalte innerhalb von 24 Stunden eine Antwort vom Verleiher.",
+        "categories": [
+          "Werkzeuge",
+          "Kameras",
+          "Musik",
+          "Outdoor",
+          "Sport",
+          "Events"
+        ]
+      },
+      {
+        "title": "Sicher & Privat",
+        "description": "Deine Abholadresse ist nur für Mieter sichtbar, nachdem du eine Vermietung akzeptiert hast."
+      }
+    ]
+  },
+  "Benefits": {
+    "subtitle": "Vorteile",
+    "title": "Warum Relengo?",
+    "description": "Mehr als nur Leihen – ein neuer Weg zu konsumieren.",
+    "list": [
+      {
+        "title": "Geld sparen",
+        "description": "Warum kaufen, wenn du leihen kannst? Spare hunderte Euro für Dinge, die du nur gelegentlich brauchst.",
+        "stat": "Spare bis zu 90%"
+      },
+      {
+        "title": "Nachhaltiger leben",
+        "description": "Reduziere Konsum und Abfall, indem du teilst. Jede Ausleihe bedeutet ein Produkt weniger, das produziert werden muss.",
+        "stat": "Umweltfreundlich"
+      },
+      {
+        "title": "Community aufbauen",
+        "description": "Lerne Menschen in deiner Nachbarschaft kennen. Teilen schafft Vertrauen und Verbindungen.",
+        "stat": "Lokale Verbindungen"
+      },
+      {
+        "title": "Sicher & Versichert",
+        "description": "Alle Transaktionen sind geschützt. Leih mit Vertrauen und voller Absicherung.",
+        "stat": "100% geschützt"
+      }
+    ]
+  },
+  "Testimonials": {
+    "subtitle": "Erfahrungen",
+    "title": "Was unsere Nutzer sagen",
+    "description": "Echte Geschichten von Menschen, die Relengo lieben.",
+    "list": [
+      {
+        "name": "Sarah M.",
+        "role": "Outdoor-Enthusiastin",
+        "quote": "Ich habe ein Zelt für einen Wochenendtrip geliehen. So einfach und günstig – ich bin begeistert!"
+      },
+      {
+        "name": "Thomas K.",
+        "role": "Hobbyfotograf",
+        "quote": "Endlich kann ich teure Objektive testen, bevor ich kaufe. Das ist ein Game-Changer!"
+      },
+      {
+        "name": "Lisa W.",
+        "role": "Heimwerkerin",
+        "quote": "Statt teure Werkzeuge zu kaufen, leihe ich sie jetzt einfach. Spart Geld und Platz!"
+      }
+    ]
+  },
+  "FinalCTA": {
+    "toastSuccess": "Welcome to the movement! We'll be in touch.",
+    "headline": "Be first in line",
+    "description": "Join the waitlist for early access. Get the app before everyone else and start sharing in your community.",
+    "submittedMessage": "You're on the list! Check your inbox.",
+    "formPlaceholderName": "Your name (optional)",
+    "formPlaceholderEmail": "Your email address",
+    "formPlaceholderPhone": "Your phone number",
+    "interestButtonRent": "I want to rent",
+    "interestButtonLend": "I want to lend",
+    "interestButtonBoth": "Both!",
+    "joinWaitlistButton": "Join the Waitlist",
+    "joiningButton": "Joining...",
+    "trustSignalFree": "Free to join",
+    "trustSignalNoSpam": "No spam ever",
+    "trustSignalEarlyAccess": "Early access perks",
+    "appStoreAlt": "Download on App Store",
+    "googlePlayAlt": "Get it on Google Play"
+  }
+}

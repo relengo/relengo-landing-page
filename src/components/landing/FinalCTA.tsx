@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
 //import { base44 } from "@/api/base44Client";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function FinalCTA() {
+  const t = useTranslations("FinalCTA");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -24,7 +26,7 @@ export default function FinalCTA() {
     //phone,
     //interest,
     //});
-    toast.success("Welcome to the movement! We'll be in touch.");
+    toast.success(t('toastSuccess'));
     setSubmitted(true);
     setLoading(false);
   };
@@ -56,18 +58,17 @@ export default function FinalCTA() {
 
             {/* Headline */}
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Be first in line
+              {t('headline')}
             </h2>
             <p className="text-slate-800 mb-10 mx-auto text-xl max-w-xl">
-              Join the waitlist for early access. Get the app before everyone
-              else and start sharing in your community.
+              {t('description')}
             </p>
 
             {submitted ? (
               <div className="flex items-center justify-center gap-3 text-[#54B9D1]">
                 <CheckCircle className="w-6 h-6" />
                 <span className="text-lg font-medium">
-                  You're on the list! Check your inbox.
+                  {t('submittedMessage')}
                 </span>
               </div>
             ) : (
@@ -77,7 +78,7 @@ export default function FinalCTA() {
               >
                 <input
                   type="text"
-                  placeholder="Your name (optional)"
+                  placeholder={t('formPlaceholderName')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="h-14 px-6 text-lg border-0 rounded-full bg-white/10 text-white placeholder:text-gray-500 focus:bg-white/20"
@@ -85,7 +86,7 @@ export default function FinalCTA() {
 
                 <input
                   type="email"
-                  placeholder="Your email address"
+                  placeholder={t('formPlaceholderEmail')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -94,7 +95,7 @@ export default function FinalCTA() {
 
                 <input
                   type="tel"
-                  placeholder="Your phone number"
+                  placeholder={t('formPlaceholderPhone')}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
@@ -104,9 +105,9 @@ export default function FinalCTA() {
                 {/* Interest buttons */}
                 <div className="flex gap-3 justify-center py-2">
                   {[
-                    { value: "renter", label: "I want to rent" },
-                    { value: "lender", label: "I want to lend" },
-                    { value: "both", label: "Both!" },
+                    { value: "renter", label: t('interestButtonRent') },
+                    { value: "lender", label: t('interestButtonLend') },
+                    { value: "both", label: t('interestButtonBoth') },
                   ].map((option) => (
                     <button
                       key={option.value}
@@ -128,7 +129,7 @@ export default function FinalCTA() {
                   disabled={loading}
                   className="w-full h-14 bg-[#FDD35B] hover:bg-[#FFC843] text-[#1E1E1E] rounded-full text-lg font-semibold transition-all hover:scale-105"
                 >
-                  {loading ? "Joining..." : "Join the Waitlist"}
+                  {loading ? t('joiningButton') : t('joinWaitlistButton')}
                   <ArrowRight className="ml-2 w-5 h-5 inline" />
                 </button>
               </form>
@@ -138,15 +139,15 @@ export default function FinalCTA() {
             <div className="flex items-center justify-center gap-6 mt-10 text-white/80 text-sm">
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-white" />
-                Free to join
+                {t('trustSignalFree')}
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-white" />
-                No spam ever
+                {t('trustSignalNoSpam')}
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-white" />
-                Early access perks
+                {t('trustSignalEarlyAccess')}
               </span>
             </div>
 
@@ -154,13 +155,13 @@ export default function FinalCTA() {
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <img
                 src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                alt="Download on App Store"
+                alt={t('appStoreAlt')}
                 className="opacity-65 h-12 cursor-not-allowed"
               />
 
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                alt="Get it on Google Play"
+                alt={t('googlePlayAlt')}
                 className="opacity-65 h-12 cursor-not-allowed"
               />
             </div>

@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
+  const t = useTranslations("HeroSection");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
@@ -15,7 +17,7 @@ export default function HeroSection() {
 
     setLoading(true);
     // await base44.entities.WaitlistSignup.create({ email, phone, name, interest: "both" });
-    toast.success("You're on the list! We'll be in touch soon.");
+    toast.success(t("toastSuccess"));
     setEmail("");
     setPhone("");
     setName("");
@@ -39,16 +41,16 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-8 border border-gray-100">
             <Sparkles className="w-4 h-4 text-[#F68B28]" />
             <span className="text-sm font-medium text-[#1A1A1A]">
-              Coming Soon to iOS & Android
+              {t('badgeText')}
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1A1A1A] tracking-tight leading-[1.1] mb-6">
-            Own less.
+            {t('mainHeadlinePart1')}
             <br />
             <span className="relative">
-              Access more
+              {t('mainHeadlinePart2')}
               <svg
                 className="absolute -bottom-2 left-0 w-full"
                 height="12"
@@ -68,11 +70,10 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
-            Relengo connects you with people nearby to lend and rent outdoor
-            gear, cameras, tools, and more.
+            {t('subheadlinePart1')}
             <span className="text-[#1A1A1A] font-medium">
               {" "}
-              Value keeps moving.
+              {t('subheadlinePart2')}
             </span>
           </p>
 
@@ -83,7 +84,7 @@ export default function HeroSection() {
           >
             <input
               type="text"
-              placeholder="Your name"
+              placeholder={t('formPlaceholderName')}
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -93,7 +94,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('formPlaceholderEmail')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -102,7 +103,7 @@ export default function HeroSection() {
 
               <input
                 type="tel"
-                placeholder="Phone number"
+                placeholder={t('formPlaceholderPhone')}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
@@ -114,14 +115,13 @@ export default function HeroSection() {
               disabled={loading}
               className="w-full h-14 bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full text-lg font-semibold transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {loading ? "Joining..." : "Join Waitlist"}
+              {loading ? t('buttonJoining') : t('buttonJoinWaitlist')}
               <ArrowRight className="w-5 h-5" />
             </button>
           </form>
 
           <p className="text-sm text-gray-500 mb-6">
-            Join <span className="text-[#F68B28] font-semibold">1000+</span>{" "}
-            others waiting for early access
+            {t('waitlistCountText')}
           </p>
 
           {/* App Store Badges */}
@@ -141,12 +141,7 @@ export default function HeroSection() {
 
           {/* Category Pills */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-            {[
-              "Outdoor Gear",
-              "Photography",
-              "DIY Tools",
-              "Sports Equipment",
-            ].map((cat, i) => {
+            {t.raw('categoryPills').map((cat: string, i: number) => {
               const colors = ["#FFC843", "#54B9D1", "#F68B28", "#F5A4B8"];
               return (
                 <span

@@ -1,21 +1,25 @@
 "use client";
 import React from "react";
 import { Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function AppPreview() {
+  const t = useTranslations("AppPreview");
+  const features = t.raw('features');
+
   return (
     <section className="py-24 px-6 bg-[#FDF8ED]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-sm font-semibold text-[#F68B28] tracking-wide uppercase">
-            The App
+            {t('subtitle')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-4 mb-6">
-            Warm, simple, and easy to use
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            A clean interface that supports effortless navigation and clarity.
+            {t('description')}
           </p>
         </div>
 
@@ -24,55 +28,35 @@ export default function AppPreview() {
           <div className="relative">
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/755531a16_image.png"
-              alt="Relengo App Preview"
+              alt={t('phoneAlt')}
               className="w-[320px] h-auto drop-shadow-2xl"
             />
           </div>
 
           {/* Features List */}
           <div className="max-w-md space-y-8">
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h4 className="text-[#1A1A1A] font-bold mb-2">
-                Make Money off of your Items in minutes
-              </h4>
-              <p className="text-gray-600 text-sm mb-4">
-                Take a picture of what you have lying around the house, upload
-                to Relengo, and start generating more money !
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h4 className="text-orange-400 mb-4 text-base font-bold">
-                Rent what you need with a few clicks
-              </h4>
-              <p className="text-gray-600 text-sm mb-4">
-                Request a rental with two clicks, and get a response within 24
-                hours from the lender.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                {[
-                  "Tools",
-                  "Cameras",
-                  "Music",
-                  "Outdoor",
-                  "Sport",
-                  "Events",
-                ].map((cat, i) => {
-                  const icons = ["🔧", "📷", "🎸", "⛺", "⚽", "🎉"];
-                  return (
-                    <div key={cat} className="flex flex-col items-center"></div>
-                  );
-                })}
+            {features.map((feature: any, index: number) => (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-sm">
+                <h4 className="text-orange-400 mb-4 text-base font-bold">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  {feature.description}
+                </p>
+                {feature.categories && (
+                  <div className="flex gap-3 flex-wrap">
+                    {feature.categories.map((cat: string, catIndex: number) => {
+                      const icons = ["🔧", "📷", "🎸", "⛺", "⚽", "🎉"];
+                      return (
+                        <div key={cat} className="flex flex-col items-center">
+                          {/* You might want to use the actual icons based on the category */}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h4 className="font-bold text-[#F68B28] mb-2">Safe & Private</h4>
-              <p className="text-gray-600 text-sm">
-                Your pick-up address is only visible to renters after you have
-                accepted a rental.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
