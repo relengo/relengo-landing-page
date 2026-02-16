@@ -1,43 +1,48 @@
 'use client';
 import React from 'react';
 import { Search, Handshake, Star } from 'lucide-react';
-
-const steps = [
-{
-  icon: Search,
-  title: "Find what you need",
-  description: "Browse items from people in your neighborhood. Cameras, kayaks, power tools—it's all here.",
-  color: "#FFC843",
-  number: "01"
-},
-{
-  icon: Handshake,
-  title: "Connect & exchange",
-  description: "Message the owner, agree on terms, and pick up the item. Safe, simple, personal.",
-  color: "#F68B28",
-  number: "02"
-},
-{
-  icon: Star,
-  title: "Use & return",
-  description: "Enjoy your rental, return it when done, and leave a review. Value keeps flowing.",
-  color: "#54B9D1",
-  number: "03"
-}];
-
+import { useTranslations } from "next-intl";
 
 export default function HowItWorks() {
+  const t = useTranslations("HowItWorks");
+
+  const baseSteps = [ // Base structure for steps, non-translatable parts
+    {
+      icon: Search,
+      color: "#FFC843",
+      number: "01"
+    },
+    {
+      icon: Handshake,
+      color: "#F68B28",
+      number: "02"
+    },
+    {
+      icon: Star,
+      color: "#54B9D1",
+      number: "03"
+    }
+  ];
+
+  const translatedSteps = t.raw('steps'); // Get translated titles and descriptions
+
+  const steps = baseSteps.map((baseStep, index) => ({
+    ...baseStep,
+    title: translatedSteps[index].title,
+    description: translatedSteps[index].description
+  }));
+
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <span className="text-sm font-semibold text-[#F68B28] tracking-wide uppercase">How It Works</span>
+          <span className="text-sm font-semibold text-[#F68B28] tracking-wide uppercase">{t('subtitle')}</span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-4 mb-6">
-            Sharing made simple
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Three steps to access what you need, or share what you have.
+            {t('description')}
           </p>
         </div>
         
@@ -82,6 +87,6 @@ export default function HowItWorks() {
           )}
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

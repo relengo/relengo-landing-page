@@ -1,51 +1,50 @@
 "use client";
 import React from "react";
 import { Star, Quote } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const testimonials = [
+const baseTestimonials = [
   {
-    name: "Sarah Chen",
-    role: "Photographer",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
-    quote:
-      "I rented a drone for my vacation shoot. Saved hundreds compared to buying one I'd barely use. This is genius!",
     color: "#FFC843",
   },
   {
-    name: "Marcus Johnson",
-    role: "Weekend Warrior",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
-    quote:
-      "Borrowed camping gear from a neighbor for my first backpacking trip. Made a friend and had an amazing adventure.",
     color: "#54B9D1",
   },
   {
-    name: "Elena Rodriguez",
-    role: "DIY Enthusiast",
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
-    quote:
-      "Why fill my garage with tools I use once a year? Now I rent power tools when I need them. So much space saved!",
     color: "#F5A4B8",
   },
 ];
 
 export default function Testimonials() {
+  const t = useTranslations("Testimonials");
+  const translatedTestimonials = t.raw('list');
+
+  const testimonials = baseTestimonials.map((baseTestimonial, index) => ({
+    ...baseTestimonial,
+    name: translatedTestimonials[index].name,
+    role: translatedTestimonials[index].role,
+    quote: translatedTestimonials[index].quote,
+  }));
+
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-sm font-semibold text-[#F5A4B8] tracking-wide uppercase">
-            Early Adopters
+            {t('subtitle')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-4 mb-6">
-            People are excited
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here's what our beta testers are saying about Relengo.
+            {t('description')}
           </p>
         </div>
 
