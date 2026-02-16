@@ -16,7 +16,7 @@ export default function Hero() {
     if (!email) return;
     
     setIsLoading(true);
-    await base44.entities.WaitlistSignup.create({ email, interest: 'both' });
+    //await base44.entities.WaitlistSignup.create({ email, interest: 'both' });
     setIsLoading(false);
     setIsSubmitted(true);
     toast.success("You're on the list! We'll be in touch soon.");
