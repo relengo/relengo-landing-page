@@ -34,7 +34,7 @@ export default function Benefits() {
   }));
 
   return (
-    <section className="bg-[#F8DEE4] px-6 py-24 relative overflow-hidden">
+    <section className="bg-[#F8DEE4] px-6 py-24 relative overflow-hidden" id='about'>
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFC843] rounded-full opacity-5 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#54B9D1] rounded-full opacity-5 blur-3xl" />
@@ -54,7 +54,7 @@ export default function Benefits() {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" >
           {benefits.map((benefit) => (
             <div
               key={benefit.title}

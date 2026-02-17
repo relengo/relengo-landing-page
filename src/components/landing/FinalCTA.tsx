@@ -32,7 +32,7 @@ export default function FinalCTA() {
   };
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-[#FDF8ED] relative overflow-hidden">
+    <section className="py-24 px-6 bg-gradient-to-b from-white to-[#FDF8ED] relative overflow-hidden" id="waitlist" >
       {/* Decorative elements */}
       <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#FFC843] rounded-full opacity-10 blur-3xl" />
       <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-[#54B9D1] rounded-full opacity-10 blur-3xl" />
@@ -50,11 +50,15 @@ export default function FinalCTA() {
             />
           </div>
 
-          <div className="relative z-10">
-            {/* Icon */}
-            <div className="w-20 h-20 bg-gradient-to-br from-[#FFC843] to-[#F68B28] rounded-2xl flex items-center justify-center mx-auto mb-8 rotate-12 transition-transform hover:rotate-0">
-              <Smartphone className="w-10 h-10 text-white -rotate-12" />
-            </div>
+          <div className="relative z-20">
+            {/* Logo */}
+              <a href="/" className="flex items-center justify-center">
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/4228a2497_relengo_logo_logo_1.png"
+                  alt="Relengo"
+                  className="h-13 w-20"
+                />
+              </a>
 
             {/* Headline */}
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -81,7 +85,7 @@ export default function FinalCTA() {
                   placeholder={t('formPlaceholderName')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/10 text-white placeholder:text-gray-500 focus:bg-white/20"
+                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-white placeholder:text-gray-500 focus:bg-white/20"
                 />
 
                 <input
@@ -90,17 +94,17 @@ export default function FinalCTA() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/10 text-white placeholder:text-gray-500 focus:bg-white/20"
+                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-white placeholder:text-gray-500 focus:bg-white/20"
                 />
 
-                <input
+                {/* <input
                   type="tel"
                   placeholder={t('formPlaceholderPhone')}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
-                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/10 text-white placeholder:text-gray-500 focus:bg-white/20"
-                />
+                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-white placeholder:text-gray-500 focus:bg-white/20"
+                /> */}
 
                 {/* Interest buttons */}
                 <div className="flex gap-3 justify-center py-2">

@@ -78,7 +78,7 @@ export default function Categories() {
     items: translatedCategories[index].items
   }));
   return (
-    <section className="py-24 px-6 bg-[#FDF8ED]">
+    <section className="py-24 px-6 bg-[#FDF8ED]" id="categories">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
