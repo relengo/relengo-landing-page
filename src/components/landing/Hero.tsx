@@ -24,7 +24,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center relative overflow-hidden" id='joinWaitlist'>
       {/* Decorative elements */}
       <div className="absolute top-20 right-10 w-32 h-32 bg-[#FFC42E] rounded-full opacity-60 blur-3xl" />
       <div className="absolute bottom-40 left-10 w-40 h-40 bg-[#4DB4D7] rounded-full opacity-40 blur-3xl" />

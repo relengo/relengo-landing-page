@@ -82,7 +82,7 @@ export default function Testimonials() {
                     className="w-14 h-14 rounded-full object-cover ring-4 ring-white"
                   />
                   <div>
-                    <h4 className="font-bold text-[#1A1A1A]">
+                    <h4 className="font-bold text-[#1A1A1A]" >
                       {testimonial.name}
                     </h4>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>

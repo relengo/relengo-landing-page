@@ -26,7 +26,6 @@ export default function HeroSection() {
 
   return (
     <section
-      id="waitlist"
       className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden"
     >
       {/* Decorative elements */}
@@ -91,25 +90,25 @@ export default function HeroSection() {
               className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
             />
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* <div className="flex flex-col sm:flex-row gap-3"> */}
               <input
                 type="email"
                 placeholder={t('formPlaceholderEmail')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
+                className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
               />
 
-              <input
+              {/* <input
                 type="tel"
                 placeholder={t('formPlaceholderPhone')}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
-                className="flex-1 h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-              />
-            </div>
+                className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
+              /> */}
+            {/* </div> */}
             <button
               type="submit"
               disabled={loading}
