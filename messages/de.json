@@ -43,23 +43,40 @@
   },
   "HowItWorks": {
     "subtitle": "So funktioniert's",
-    "title": "So einfach geht's",
-    "description": "In drei einfachen Schritten leihen oder verleihen – ohne Komplikationen.",
-    "steps": [
-      {
-        "title": "Durchstöbern & Finden",
-        "description": "Entdecke Artikel in deiner Nähe. Filtere nach Kategorie, Preis und Verfügbarkeit."
+    "title": "Teilen leicht gemacht",
+    "description": "Drei Schritte, um zu finden, was du brauchst, oder zu teilen, was du hast.",
+    "toggleLending": "So verleihst du",
+    "toggleRenting": "So mietest du",
+    "stepsLending": [
+      { 
+        "title": "Stelle deinen Artikel ein", 
+        "description": "Biete Gegenstände an, die du besitzt. Kameras, Kajaks, Werkzeuge – alles ist willkommen." 
       },
-      {
-        "title": "Verbinden & Vereinbaren",
-        "description": "Kontaktiere den Besitzer direkt. Vereinbart Details und Übergabe."
+      { 
+        "title": "Abstimmen & übergeben", 
+        "description": "Erhalte Anfragen, stimme den Details zu und organisiere die Übergabe. Sicher, einfach, persönlich." 
       },
-      {
-        "title": "Nutzen & Bewerten",
-        "description": "Genieße dein Erlebnis und teile deine Bewertung mit der Community."
+      { 
+        "title": "Zurückbekommen & verdienen", 
+        "description": "Erhalte deinen Artikel zurück, wenn die Mietdauer endet, und verdiene dabei Geld." 
+      }
+    ],
+    "stepsRenting": [
+      { 
+        "title": "Finde, was du suchst", 
+        "description": "Stöbere durch Artikel von Leuten aus deiner Nachbarschaft. Kameras, Kajaks, Werkzeuge – alles ist da." 
+      },
+      { 
+        "title": "Vernetzen & austauschen", 
+        "description": "Prüfe die Verfügbarkeit, sende eine Anfrage und hole den Artikel ab. Sicher, einfach, persönlich." 
+      },
+      { 
+        "title": "Nutzen & zurückgeben", 
+        "description": "Genieße deine Leihe, bringe den Artikel zurück und hinterlasse eine Bewertung." 
       }
     ]
-  },
+},
+
   "Categories": {
     "subtitle": "Kategorien",
     "title": "Was möchtest du leihen?",

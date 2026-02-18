@@ -41,25 +41,26 @@
     ],
     "toastSuccess": "You're on the list! We'll be in touch soon."
   },
+
   "HowItWorks": {
-    "subtitle": "How It Works",
+    "subtitle": "How it works",
     "title": "Sharing made simple",
     "description": "Three steps to access what you need, or share what you have.",
-    "steps": [
-      {
-        "title": "Find what you need",
-        "description": "Browse items from people in your neighborhood. Cameras, kayaks, power tools—it's all here."
-      },
-      {
-        "title": "Connect & exchange",
-        "description": "Message the owner, agree on terms, and pick up the item. Safe, simple, personal."
-      },
-      {
-        "title": "Use & return",
-        "description": "Enjoy your rental, return it when done, and leave a review. Value keeps flowing."
-      }
+    "toggleLending": "How lending works",
+    "toggleRenting": "How renting works",
+    "stepsLending": [
+      { "title": "List your item", "description": "Browse items from people in your neighborhood. Cameras, kayaks, power tools—it's all here." },
+      { "title": "Agree & hand over", "description": "Browse availability, send a booking request, and arrange pickup once approved. Safe, simple, personal." },
+      { "title": "Get it back & get paid", "description": "Enjoy your rental, return it when done, and leave a review." }
+    ],
+    "stepsRenting": [
+      { "title": "Find what you need", "description": "Browse items from people in your neighborhood. Cameras, kayaks, power tools—it's all here." },
+      { "title": "Connect & exchange", "description": "Browse availability, send a booking request, and arrange pickup once approved. Safe, simple, personal." },
+      { "title": "Use & return", "description": "Enjoy your rental, return it when done, and leave a review." }
     ]
   },
+
+
   "Categories": {
     "subtitle": "Categories",
     "title": "Everything you need,\nnothing you don't",
