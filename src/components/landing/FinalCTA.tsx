@@ -32,7 +32,7 @@ export default function FinalCTA() {
   };
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-[#FDF8ED] relative overflow-hidden" id="waitlist" >
+    <section className="py-14 px-6 bg-gradient-to-b from-white to-[#FDF8ED] relative overflow-hidden" id="waitlist" >
       {/* Decorative elements */}
       <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#FFC843] rounded-full opacity-10 blur-3xl" />
       <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-[#54B9D1] rounded-full opacity-10 blur-3xl" />
@@ -85,7 +85,8 @@ export default function FinalCTA() {
                   placeholder={t('formPlaceholderName')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-white placeholder:text-gray-500 focus:bg-white/20"
+                  className="w-full h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-slate-800 placeholder:text-gray-500 focus:bg-white/20"
+
                 />
 
                 <input
@@ -94,7 +95,8 @@ export default function FinalCTA() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-white placeholder:text-gray-500 focus:bg-white/20"
+                  className="w-full h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-slate-800 placeholder:text-gray-500 focus:bg-white/20"
+
                 />
 
                 {/* <input
@@ -149,14 +151,14 @@ export default function FinalCTA() {
                 <CheckCircle className="w-4 h-4 text-white" />
                 {t('trustSignalNoSpam')}
               </span>
-              <span className="flex items-center gap-2">
+              {/* <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-white" />
                 {t('trustSignalEarlyAccess')}
-              </span>
+              </span> */}
             </div>
 
             {/* App Store Badges */}
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <div className="flex justify-center gap-4 mt-8">
               <img
                 src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                 alt={t('appStoreAlt')}

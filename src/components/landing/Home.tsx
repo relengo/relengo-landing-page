@@ -19,7 +19,7 @@ export default function Home() {
       <Categories />
       <AppPreview />
       <Benefits />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FinalCTA />
       <Footer />
     </>

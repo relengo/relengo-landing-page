@@ -94,14 +94,15 @@ export default function Categories() {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory">
           {categories.map((category) => (
             <div
               key={category.name}
-              className="group relative bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
+              className="group relative bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer flex-shrink-0 w-56 snap-center"
             >
+
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-36 overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.name}

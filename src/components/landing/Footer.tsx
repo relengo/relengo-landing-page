@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 export default function Footer() {
   const t = useTranslations("Footer");
   return (
-    <footer className="py-16 px-6 bg-[#FDF8ED]">
+    <footer className="py-6 px-3 lg:px-6 bg-[#FDF8ED]">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Tagline */}
@@ -16,13 +16,13 @@ export default function Footer() {
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/4228a2497_relengo_logo_logo_1.png"
               alt="Relengo"
-              className="h-16 w-auto mb-2 mx-auto md:mx-0"
+              className="h-12 w-auto mb-2 mx-auto md:mx-0"
             />
-            <p className="text-gray-600">{t('tagline')}</p>
+            <p className="text-gray-600 text-sm">{t('tagline')}</p>
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {[
               {
                 icon: Instagram,
@@ -66,28 +66,28 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gray-200 my-10" />
+        <div className="h-px bg-gray-200 my-8" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>{t('copyright')}</p>
-          <div className="flex gap-6">
+          <p className="text-xs md:text-sm">{t('copyright')}</p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs md:text-sm">
             <Link
               href={`/${t('privacyPolicyHref')}`}
-              className="hover:text-[#1A1A1A] transition-colors"
+              className="hover:text-[#1A1A1A] transition-colors whitespace-nowrap"
             >
               {t('privacyPolicy')}
             </Link>
             <Link
               href={`/${t('termsOfServiceHref')}`}
-              className="hover:text-[#1A1A1A] transition-colors"
+              className="hover:text-[#1A1A1A] transition-colors whitespace-nowrap"
             >
               {t('termsOfService')}
             </Link>
-            <a href={`/${t('contactHref')}`} className="hover:text-[#1A1A1A] transition-colors">
+            <a href={`/${t('contactHref')}`} className="hover:text-[#1A1A1A] transition-colors whitespace-nowrap">
               {t('contact')}
             </a>
-            <Link href={t('languageSwitcherHref')} className="hover:text-[#1A1A1A] transition-colors">
+            <Link href={t('languageSwitcherHref')} className="hover:text-[#1A1A1A] transition-colors whitespace-nowrap">
               {t('languageSwitcher')}
             </Link>
           </div>
