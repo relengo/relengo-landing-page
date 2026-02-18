@@ -8,7 +8,7 @@ export default function AppPreview() {
   const features = t.raw('features');
 
   return (
-    <section className="py-24 px-6 bg-[#FDF8ED]">
+    <section className=" pb-20 px-6 bg-[#FDF8ED]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
