@@ -97,7 +97,7 @@ export default function HeroSection() {
                   key={option.value}
                   type="button"
                   onClick={() => setInterest(option.value as any)}
-                  className={`px-3 py-2 rounded-full transition-all whitespace-nowrap text-xs sm:text-sm font-medium ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     interest === option.value
                       ? "bg-[#FFC843] text-[#1A1A1A]"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
