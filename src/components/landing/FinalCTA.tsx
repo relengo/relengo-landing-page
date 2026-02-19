@@ -61,10 +61,10 @@ export default function FinalCTA() {
               </a>
 
             {/* Headline */}
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               {t('headline')}
             </h2>
-            <p className="text-slate-800 mb-10 mx-auto text-xl max-w-xl">
+            <p className="text-slate-800 mb-10 mx-auto text-base max-w-xl">
               {t('description')}
             </p>
 

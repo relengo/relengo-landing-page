@@ -9,6 +9,7 @@ export default function HeroSection() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
+  const [interest, setInterest] = useState<"renter" | "lender" | "both">("lender"); // default lending
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -16,7 +17,7 @@ export default function HeroSection() {
     if (!email || !phone || !name) return;
 
     setLoading(true);
-    // await base44.entities.WaitlistSignup.create({ email, phone, name, interest: "both" });
+    // await base44.entities.WaitlistSignup.create({ email, phone, name, interest });
     toast.success(t("toastSuccess"));
     setEmail("");
     setPhone("");
@@ -25,9 +26,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section
-      className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden"
-    >
+    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#FFC843] rounded-full opacity-20 blur-3xl" />
       <div className="absolute bottom-40 right-20 w-48 h-48 bg-[#54B9D1] rounded-full opacity-20 blur-3xl" />
@@ -40,22 +39,17 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-8 border border-gray-100">
             <Sparkles className="w-4 h-4 text-[#F68B28]" />
             <span className="text-sm font-medium text-[#1A1A1A]">
-              {t('badgeText')}
+              {t("badgeText")}
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1A1A1A] tracking-tight leading-[1.1] mb-6">
-            {t('mainHeadlinePart1')}
+            {t("mainHeadlinePart1")}
             <br />
             <span className="relative">
-              {t('mainHeadlinePart2')}
-              <svg
-                className="absolute -bottom-2 left-0 w-full"
-                height="12"
-                viewBox="0 0 300 12"
-                fill="none"
-              >
+              {t("mainHeadlinePart2")}
+              <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none">
                 <path
                   d="M2 10C50 2 100 2 150 6C200 10 250 10 298 4"
                   stroke="#FFC843"
@@ -69,59 +63,63 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
-            {t('subheadlinePart1')}
-            <span className="text-[#1A1A1A] font-medium">
-              {" "}
-              {t('subheadlinePart2')}
-            </span>
+            {t("subheadlinePart1")}
+            <span className="text-[#1A1A1A] font-medium"> {t("subheadlinePart2")}</span>
           </p>
 
           {/* Waitlist Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0 mb-6"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0 mb-6">
             <input
               type="text"
-              placeholder={t('formPlaceholderName')}
+              placeholder={t("formPlaceholderName")}
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
               className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
             />
 
-            {/* <div className="flex flex-col sm:flex-row gap-3"> */}
-              <input
-                type="email"
-                placeholder={t('formPlaceholderEmail')}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-              />
+            <input
+              type="email"
+              placeholder={t("formPlaceholderEmail")}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
+            />
+            {/* Interest buttons */}
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start py-1">
+              {[
+                { value: "renter", label: t("interestButtonRent") },
+                { value: "lender", label: t("interestButtonLend") },
+                { value: "both", label: t("interestButtonBoth") }
+              ].map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => setInterest(option.value as any)}
+                  className={`px-3 py-2 rounded-full transition-all whitespace-nowrap text-xs sm:text-sm font-medium ${
+                    interest === option.value
+                      ? "bg-[#FFC843] text-[#1A1A1A]"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
 
-              {/* <input
-                type="tel"
-                placeholder={t('formPlaceholderPhone')}
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-                className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-              /> */}
-            {/* </div> */}
+
             <button
               type="submit"
               disabled={loading}
               className="w-full h-14 bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full text-lg font-semibold transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {loading ? t('buttonJoining') : t('buttonJoinWaitlist')}
+              {loading ? t("buttonJoining") : t("buttonJoinWaitlist")}
               <ArrowRight className="w-5 h-5" />
             </button>
           </form>
 
-          <p className="text-sm text-gray-500 mb-6">
-            {t('waitlistCountText')}
-          </p>
+          <p className="text-sm text-gray-500 mb-6">{t("waitlistCountText")}</p>
 
           {/* App Store Badges */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
@@ -130,7 +128,6 @@ export default function HeroSection() {
               alt="Download on App Store"
               className="h-10 opacity-50 cursor-not-allowed"
             />
-
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
               alt="Get it on Google Play"
@@ -140,16 +137,13 @@ export default function HeroSection() {
 
           {/* Category Pills */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-            {t.raw('categoryPills').map((cat: string, i: number) => {
+            {t.raw("categoryPills").map((cat: string, i: number) => {
               const colors = ["#FFC843", "#54B9D1", "#F68B28", "#F5A4B8"];
               return (
                 <span
                   key={cat}
                   className="px-4 py-2 rounded-full text-sm font-medium transition-transform hover:scale-105 cursor-default"
-                  style={{
-                    backgroundColor: `${colors[i]}20`,
-                    color: "#1A1A1A",
-                  }}
+                  style={{ backgroundColor: `${colors[i]}20`, color: "#1A1A1A" }}
                 >
                   {cat}
                 </span>
@@ -166,8 +160,6 @@ export default function HeroSection() {
               alt="Relengo App Preview"
               className="w-[340px] h-auto drop-shadow-2xl"
             />
-
-            {/* Decorative elements around phone */}
             <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#FFC843] rounded-full opacity-30 blur-2xl" />
             <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#54B9D1] rounded-full opacity-30 blur-2xl" />
           </div>

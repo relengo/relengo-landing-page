@@ -39,7 +39,10 @@
       "Heimwerken",
       "Sportgeräte"
     ],
-    "toastSuccess": "Du bist auf der Liste! Wir melden uns bald."
+    "toastSuccess": "Du bist auf der Liste! Wir melden uns bald.",
+    "interestButtonRent": "Mieten",
+    "interestButtonLend": "Verleihen",
+    "interestButtonBoth": "Beides"
   },
   "HowItWorks": {
     "subtitle": "So funktioniert's",
@@ -48,19 +51,20 @@
     "toggleLending": "So verleihst du",
     "toggleRenting": "So mietest du",
     "stepsLending": [
-      { 
-        "title": "Stelle deinen Artikel ein", 
-        "description": "Biete Gegenstände an, die du besitzt. Kameras, Kajaks, Werkzeuge – alles ist willkommen." 
+      {
+        "title": "Artikel einstellen",
+        "description": "Titel, Beschreibung und ein paar Fotos hinzufügen – in wenigen Minuten erledigt."
       },
-      { 
-        "title": "Abstimmen & übergeben", 
-        "description": "Erhalte Anfragen, stimme den Details zu und organisiere die Übergabe. Sicher, einfach, persönlich." 
+      {
+        "title": "Absprechen, übergeben, sofort bezahlt werden",
+        "description": "Anfragen prüfen, die passende annehmen, zur Übergabe treffen – und direkt bezahlt werden."
       },
-      { 
-        "title": "Zurückbekommen & verdienen", 
-        "description": "Erhalte deinen Artikel zurück, wenn die Mietdauer endet, und verdiene dabei Geld." 
+      {
+        "title": "Zurückbekommen & wieder verleihen",
+        "description": "Am Ende der Miete zurückerhalten, Bewertung abgeben und direkt die nächste Ausleihe starten."
       }
-    ],
+    ], 
+
     "stepsRenting": [
       { 
         "title": "Finde, was du suchst", 
@@ -132,7 +136,7 @@
       },
       {
         "title": "Miete, was du brauchst, mit nur wenigen Klicks",
-        "description": "Stelle eine Mietanfrage mit zwei Klicks und erhalte innerhalb von 24 Stunden eine Antwort vom Verleiher.",
+        "description": "Stelle eine Mietanfrage mit zwei Klicks und erhalte innerhalb von ein bis zwei Tagen eine Antwort vom Verleiher.",
         "categories": [
           "Werkzeuge",
           "Kameras",
@@ -197,23 +201,24 @@
       }
     ]
   },
-  "FinalCTA": {
-    "toastSuccess": "Welcome to the movement! We'll be in touch.",
-    "headline": "Be first in line",
-    "description": "Join the waitlist for early access. Get the app before everyone else and start sharing in your community.",
-    "submittedMessage": "You're on the list! Check your inbox.",
-    "formPlaceholderName": "Your name (optional)",
-    "formPlaceholderEmail": "Your email address",
-    "formPlaceholderPhone": "Your phone number",
-    "interestButtonRent": "I want to rent",
-    "interestButtonLend": "I want to lend",
-    "interestButtonBoth": "Both!",
-    "joinWaitlistButton": "Join the Waitlist",
-    "joiningButton": "Joining...",
-    "trustSignalFree": "Free to join",
-    "trustSignalNoSpam": "No spam ever",
-    "trustSignalEarlyAccess": "Early access perks",
-    "appStoreAlt": "Download on App Store",
-    "googlePlayAlt": "Get it on Google Play"
+ "FinalCTA": {
+    "toastSuccess": "Willkommen bei der Bewegung! Wir melden uns bei dir.",
+    "headline": "Sei der Erste, der informiert wird",
+    "description": "Trag dich in die Warteliste ein, um als Erste:r benachrichtigt zu werden, sobald die App verfügbar ist – und profitiere von exklusiven Vorteilen für Early Joiner.",
+    "submittedMessage": "Du bist auf der Liste! Schau in dein Postfach.",
+    "formPlaceholderName": "Gib deinen Namen ein",
+    "formPlaceholderEmail": "Gib deine E-Mail ein",
+    "formPlaceholderPhone": "Deine Telefonnummer",
+    "interestButtonRent": "Mieten",
+    "interestButtonLend": "Verleihen",
+    "interestButtonBoth": "Beides!",
+    "joinWaitlistButton": "Zur Warteliste",
+    "joiningButton": "Wird eingetragen …",
+    "trustSignalFree": "Kostenlos dabei",
+    "trustSignalNoSpam": "Kein Spam",
+    "trustSignalEarlyAccess": "Vorteile für Early Access",
+    "appStoreAlt": "Im App Store herunterladen",
+    "googlePlayAlt": "Bei Google Play herunterladen"
   }
+
 }
