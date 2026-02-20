@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import { X, Cookie } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const t = useTranslations('CookieConsent');
+  const locale = useLocale(); // Add this
 
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
@@ -113,7 +115,7 @@ export default function CookieConsent() {
                 </button>
 
                 <a 
-                  href="/privacy" 
+                  href={`/${locale}/datenschutz`}
                   className="text-sm text-gray-600 hover:text-gray-900 hover:underline"
                 >
                   {t('privacy')}

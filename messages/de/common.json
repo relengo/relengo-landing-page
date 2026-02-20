@@ -252,8 +252,13 @@
     "settings": "Einstellungen",
     "showLess": "Weniger anzeigen",
     "privacy": "Datenschutz"
+  },
+
+  "NotFound": {
+    "title": "Oops!",
+    "description": "Es sieht so aus, als hättest du einen leeren Ort gefunden.",
+    "backHome": "Zurück zur Startseite"
   }
-  
 }
 
 
