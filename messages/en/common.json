@@ -1,14 +1,16 @@
 {
   "Footer": {
-    "tagline": "Access more. Own less. Live better.",
+    "tagline": "Own less. Access more.",
     "socialLinkEmailLabel": "Email",
     "copyright": "© 2026 Relengo. All rights reserved.",
+    "imprint": "Imprint",
+    "imprintHref": "impressum",
     "privacyPolicy": "Privacy Policy",
-    "privacyPolicyHref": "privacy",
+    "privacyPolicyHref": "datenschutz",
     "termsOfService": "Terms of Service",
-    "termsOfServiceHref": "terms",
+    "termsOfServiceHref": "agb",
     "contact": "Contact",
-    "contactHref": "#",
+    "contactHref": "contact",
     "languageSwitcher": "🇩🇪 Deutsch",
     "languageSwitcherHref": "/de"
   },
@@ -42,7 +44,14 @@
     "toastSuccess": "You're on the list! We'll be in touch soon.",
     "interestButtonRent": "Rent",
     "interestButtonLend": "Lend",
-    "interestButtonBoth": "Both"
+    "interestButtonBoth": "Both",
+    "form": {
+      "appLaunchConsent": "I agree that Relengo may store my email address to send me a download link when the app is available, as well as an exclusive launch offer. I can revoke my consent at any time.",
+      "marketingConsent": "I would also like to receive updates, tips, and exclusive offers from Relengo (optional).",
+      "privacyLink": "Privacy Policy",
+      "consentRequired": "Please confirm that we may send you the app link.",
+      "requiredNote": "* Required field"
+    }
 
   },
 
@@ -116,7 +125,7 @@
     "features": [
       {
         "title": "Make Money off of your Items in minutes",
-        "description": "Take a picture of what you have lying around the house, upload to Relengo, and start generating more money !"
+        "description": "Take a picture of what you have lying around the house, upload to Relengo, and start generating more money!"
       },
       {
         "title": "Rent what you need with a few clicks",
@@ -202,6 +211,28 @@
     "trustSignalNoSpam": "No spam ever",
     "trustSignalEarlyAccess": "Early access perks",
     "appStoreAlt": "Download on App Store",
-    "googlePlayAlt": "Get it on Google Play"
+    "googlePlayAlt": "Get it on Google Play",
+    "form": {
+      "appLaunchConsent": "I agree that Relengo may store my email address to send me a download link when the app is available, as well as an exclusive launch offer. I can revoke my consent at any time.",
+      "marketingConsent": "I would also like to receive updates, tips, and exclusive offers from Relengo (optional).",
+      "privacyLink": "Privacy Policy",
+      "consentRequired": "Please confirm that we may send you the app link.",
+      "requiredNote": "* Required field"
+    }
+  },
+
+  "CookieConsent": {
+    "title": "Cookie Settings",
+    "description": "We use cookies to improve your experience on our website. Some are necessary for the site to function, others help us understand and optimize usage.",
+    "necessary": "Necessary Cookies",
+    "necessaryDescription": "Required for basic functions",
+    "analytics": "Analytics Cookies",
+    "analyticsDescription": "Help us understand usage",
+    "acceptAll": "Accept All",
+    "onlyNecessary": "Only Necessary",
+    "settings": "Settings",
+    "showLess": "Show Less",
+    "privacy": "Privacy"
   }
+  
 }

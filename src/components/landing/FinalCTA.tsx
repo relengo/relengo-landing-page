@@ -5,6 +5,8 @@ import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
 //import { base44 } from "@/api/base44Client";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 
 export default function FinalCTA() {
   const t = useTranslations("FinalCTA");
@@ -12,30 +14,50 @@ export default function FinalCTA() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [interest, setInterest] = useState("both");
+  const [appLaunchConsent, setAppLaunchConsent] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !phone) return;
+    setError("");
+    
+    if (!email) return;
+    
+    // Validate required consent
+    if (!appLaunchConsent) {
+      setError(t('form.consentRequired'));
+      return;
+    }
 
     setLoading(true);
+    
+    // TODO: Update when base44 is ready
     //await base44.entities.WaitlistSignup.create({
-    // email,
-    // name,
-    //phone,
-    //interest,
+    //  email,
+    //  name,
+    //  phone,
+    //  interest,
+    //  appLaunchConsent,
+    //  marketingConsent,
+    //  timestamp: new Date().toISOString(),
     //});
+    
     toast.success(t('toastSuccess'));
     setSubmitted(true);
     setLoading(false);
   };
+
 
   return (
     <section className="py-14 px-6 bg-gradient-to-b from-white to-[#FDF8ED] relative overflow-hidden" id="waitlist" >
       {/* Decorative elements */}
       <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#FFC843] rounded-full opacity-10 blur-3xl" />
       <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-[#54B9D1] rounded-full opacity-10 blur-3xl" />
+
 
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="bg-[#67B8D5] rounded-[2.5rem] p-8 md:p-16 text-center relative overflow-hidden">
@@ -50,6 +72,7 @@ export default function FinalCTA() {
             />
           </div>
 
+
           <div className="relative z-20">
             {/* Logo */}
               <a href="/" className="flex items-center justify-center">
@@ -60,6 +83,7 @@ export default function FinalCTA() {
                 />
               </a>
 
+
             {/* Headline */}
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 mt-4">
               {t('headline')}
@@ -67,6 +91,7 @@ export default function FinalCTA() {
             <p className="text-slate-800 mb-10 mx-auto text-base max-w-xl">
               {t('description')}
             </p>
+
 
             {submitted ? (
               <div className="flex items-center justify-center gap-3 text-[#54B9D1]">
@@ -87,7 +112,9 @@ export default function FinalCTA() {
                   onChange={(e) => setName(e.target.value)}
                   className="w-full h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-slate-800 placeholder:text-gray-500 focus:bg-white/20"
 
+
                 />
+
 
                 <input
                   type="email"
@@ -97,7 +124,9 @@ export default function FinalCTA() {
                   required
                   className="w-full h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-slate-800 placeholder:text-gray-500 focus:bg-white/20"
 
+
                 />
+
 
                 {/* <input
                   type="tel"
@@ -107,6 +136,7 @@ export default function FinalCTA() {
                   required
                   className="h-14 px-6 text-lg border-0 rounded-full bg-white/50 text-white placeholder:text-gray-500 focus:bg-white/20"
                 /> */}
+
 
                 {/* Interest buttons */}
                 <div className="flex gap-3 justify-center py-2">
@@ -119,16 +149,54 @@ export default function FinalCTA() {
                       key={option.value}
                       type="button"
                       onClick={() => setInterest(option.value)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      className={`w-full px-4 py-2 rounded-full text-sm font-medium transition-all ${
                         interest === option.value
                           ? "bg-[#FFC843] text-[#1A1A1A]"
-                          : "bg-white/10 text-white hover:bg-white/20"
+                          : "bg-white/30 text-white hover:bg-white/20"
                       }`}
                     >
                       {option.label}
                     </button>
                   ))}
                 </div>
+
+                {/* Consent Checkboxes */}
+                <div className="text-left space-y-3 bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
+                  <label className="flex items-start gap-3 text-sm text-white">
+                    <input
+                      type="checkbox"
+                      checked={appLaunchConsent}
+                      onChange={(e) => setAppLaunchConsent(e.target.checked)}
+                      required
+                      className="mt-1 w-4 h-4 accent-[#FFC843] flex-shrink-0"
+                    />
+                    <span>
+                      {t('form.appLaunchConsent')}{" "}
+                      <Link href="/datenschutz" className="underline hover:text-[#FFC843]">
+                        {t('form.privacyLink')}
+                      </Link>
+                      <span className="text-[#FFC843] ml-1">*</span>
+                    </span>
+                  </label>
+
+                  <label className="flex items-start gap-3 text-sm text-white">
+                    <input
+                      type="checkbox"
+                      checked={marketingConsent}
+                      onChange={(e) => setMarketingConsent(e.target.checked)}
+                      className="mt-1 w-4 h-4 accent-[#FFC843] flex-shrink-0"
+                    />
+                    <span>{t('form.marketingConsent')}</span>
+                  </label>
+                </div>
+
+                {/* Error Message */}
+                {error && (
+                  <p className="text-red-100 bg-red-500/20 px-4 py-2 rounded-full text-sm">
+                    {error}
+                  </p>
+                )}
+
 
                 <button
                   type="submit"
@@ -138,8 +206,13 @@ export default function FinalCTA() {
                   {loading ? t('joiningButton') : t('joinWaitlistButton')}
                   <ArrowRight className="ml-2 w-5 h-5 inline" />
                 </button>
+
+                <p className="text-xs text-white/70 text-center">
+                  {t('form.requiredNote')}
+                </p>
               </form>
             )}
+
 
             {/* Trust signals */}
             <div className="flex items-center justify-center gap-6 mt-10 text-white/80 text-sm">
@@ -157,6 +230,7 @@ export default function FinalCTA() {
               </span> */}
             </div>
 
+
             {/* App Store Badges */}
             <div className="flex justify-center gap-4 mt-8">
               <img
@@ -164,6 +238,7 @@ export default function FinalCTA() {
                 alt={t('appStoreAlt')}
                 className="opacity-65 h-12 cursor-not-allowed"
               />
+
 
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"

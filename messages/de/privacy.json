@@ -1,0 +1,97 @@
+{
+  "title": "Datenschutzerklärung",
+  "controller": {
+    "title": "Verantwortlicher",
+    "info": "Relengo\n[Ihr Name/Firmenname]\n[Adresse]\nE-Mail: info@relengo.app"
+  },
+  "collection": {
+    "title": "Erhebung und Speicherung personenbezogener Daten",
+    "legalBasis": "Rechtsgrundlage",
+    "storageDuration": "Speicherdauer",
+    "website": {
+      "title": "Beim Besuch der Website",
+      "description": "Beim Aufrufen unserer Website werden automatisch folgende Informationen erfasst:",
+      "item1": "IP-Adresse (anonymisiert)",
+      "item2": "Datum und Uhrzeit des Besuchs",
+      "item3": "Browser-Typ und Version",
+      "item4": "Betriebssystem",
+      "item5": "Referrer URL",
+      "basis": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Systemsicherheit)"
+    },
+    "waitlist": {
+      "title": "Wartelisten-Anmeldung",
+      "description": "Bei der Anmeldung zur Warteliste erheben wir:",
+      "item1": "Name (optional)",
+      "item2": "E-Mail-Adresse",
+      "item3": "Zeitpunkt der Anmeldung",
+      "basis": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)",
+      "duration": "Bis zum Widerruf oder bis 6 Monate nach App-Launch"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Wir verwenden Cookies, um Ihre Nutzererfahrung zu verbessern. Sie können Ihre Cookie-Einstellungen jederzeit über das Cookie-Banner anpassen.",
+      "necessary": "Notwendige Cookies",
+      "necessaryDesc": "Technisch erforderlich für die Funktion der Website",
+      "analytics": "Analyse-Cookies",
+      "analyticsDesc": "Zur Verbesserung unserer Website (nur mit Ihrer Einwilligung)"
+    }
+  },
+  "thirdParties": {
+    "title": "Weitergabe an Dritte",
+    "hosting": {
+      "title": "Hosting",
+      "info": "Unsere Website wird gehostet bei [Ihr Hosting-Anbieter, z.B. Vercel].\nStandort: [Standort]\nEs wurde ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen."
+    },
+    "email": {
+      "title": "E-Mail-Versand",
+      "info": "Für den Versand von Benachrichtigungen nutzen wir [Ihr E-Mail-Dienst, z.B. Mailchimp/SendGrid].\nEs wurde ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen."
+    },
+    "analytics": {
+      "title": "Analyse-Tools (optional)",
+      "info": "Wir verwenden [z.B. Google Analytics] nur mit Ihrer Einwilligung zur Verbesserung unserer Website.\nRechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO"
+    }
+  },
+  "rights": {
+    "title": "Ihre Rechte",
+    "description": "Sie haben folgende Rechte:",
+    "access": {
+      "title": "Auskunftsrecht (Art. 15 DSGVO)",
+      "description": "Sie haben das Recht zu erfahren, welche Daten wir über Sie speichern"
+    },
+    "rectification": {
+      "title": "Recht auf Berichtigung (Art. 16 DSGVO)",
+      "description": "Korrektur falscher Daten"
+    },
+    "erasure": {
+      "title": "Recht auf Löschung (Art. 17 DSGVO)",
+      "description": "Löschung Ihrer Daten unter bestimmten Voraussetzungen"
+    },
+    "portability": {
+      "title": "Recht auf Datenübertragbarkeit (Art. 20 DSGVO)",
+      "description": "Erhalt Ihrer Daten in einem maschinenlesbaren Format"
+    },
+    "objection": {
+      "title": "Widerspruchsrecht (Art. 21 DSGVO)",
+      "description": "Widerspruch gegen die Verarbeitung"
+    },
+    "complaint": {
+      "title": "Beschwerderecht",
+      "description": "Beschwerde bei einer Datenschutzbehörde"
+    },
+    "contact": "Kontakt:"
+  },
+  "security": {
+    "title": "Datensicherheit",
+    "description": "Wir verwenden technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten zu schützen:",
+    "item1": "SSL/TLS-Verschlüsselung",
+    "item2": "Sichere Server-Infrastruktur",
+    "item3": "Regelmäßige Sicherheitsupdates",
+    "item4": "Zugriffskontrollen"
+  },
+  "changes": {
+    "title": "Änderungen dieser Datenschutzerklärung",
+    "description": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslage oder Änderungen unserer Dienstleistungen anzupassen.",
+    "lastUpdated": "Stand",
+    "locale": "de-DE"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Allgemeine Geschäftsbedingungen (AGB)",
+  "scope": {
+    "title": "Geltungsbereich",
+    "description": "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung der Plattform Relengo, die von [Ihr Name/Unternehmen] betrieben wird. Relengo ist eine Peer-to-Peer-Vermietungsplattform für Gebrauchsgegenstände und Ausrüstung."
+  },
+  "registration": {
+    "title": "Registrierung",
+    "clause1": "2.1 Die Nutzung der Plattform erfordert eine Registrierung. Mit der Registrierung bestätigen Sie, dass Sie mindestens 18 Jahre alt sind.",
+    "clause2": "2.2 Sie verpflichten sich, wahrheitsgemäße und vollständige Angaben zu machen und diese aktuell zu halten."
+  },
+  "services": {
+    "title": "Leistungen",
+    "clause1": "3.1 Relengo stellt eine Plattform zur Verfügung, über die Nutzer Gegenstände zur Miete anbieten und mieten können.",
+    "clause2": "3.2 Relengo ist nicht Vertragspartner der Mietverträge zwischen Vermietern und Mietern. Der Mietvertrag kommt ausschließlich zwischen den Nutzern zustande.",
+    "clause3": "3.3 Relengo bietet Versicherungsschutz für vermietete Gegenstände während der Mietdauer."
+  },
+  "obligations": {
+    "title": "Pflichten der Nutzer",
+    "lenders": {
+      "title": "Vermieter",
+      "item1": "Müssen Eigentümer oder verfügungsberechtigt über die angebotenen Gegenstände sein",
+      "item2": "Müssen genaue Beschreibungen und Fotos bereitstellen",
+      "item3": "Haften für Mängel und Schäden am vermieteten Gegenstand"
+    },
+    "renters": {
+      "title": "Mieter",
+      "item1": "Müssen gemietete Gegenstände pfleglich behandeln",
+      "item2": "Haften für Schäden während der Mietdauer",
+      "item3": "Müssen Gegenstände rechtzeitig zurückgeben"
+    }
+  },
+  "payment": {
+    "title": "Zahlung und Gebühren",
+    "clause1": "5.1 Die Zahlung erfolgt über die Plattform. Relengo behält eine Vermittlungsgebühr von [X%] ein.",
+    "clause2": "5.2 Die Auszahlung an Vermieter erfolgt nach Abschluss der Miete und Rückgabe des Gegenstands."
+  },
+  "insurance": {
+    "title": "Versicherung",
+    "description": "Relengo bietet Versicherungsschutz für alle über die Plattform vermieteten Gegenstände. Details zur Versicherung finden Sie in unseren Versicherungsbedingungen."
+  },
+  "liability": {
+    "title": "Haftung",
+    "clause1": "7.1 Relengo haftet nicht für Schäden, die aus dem Mietvertrag zwischen Nutzern entstehen.",
+    "clause2": "7.2 Relengo haftet nur bei Vorsatz und grober Fahrlässigkeit, außer bei Verletzung wesentlicher Vertragspflichten."
+  },
+  "termination": {
+    "title": "Kündigung",
+    "description": "Beide Parteien können die Nutzung der Plattform jederzeit kündigen. Laufende Mietverträge bleiben davon unberührt."
+  },
+  "law": {
+    "title": "Anwendbares Recht",
+    "description": "Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts."
+  },
+  "lastUpdated": "Stand",
+  "locale": "de-DE"
+}

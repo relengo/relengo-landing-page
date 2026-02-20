@@ -9,6 +9,8 @@ import Benefits from "@/components/landing/Benefits";
 import Testimonials from "@/components/landing/Testimonials";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
+import CookieConsent from '@/components/CookieConsent';
+
 
 export default function Home() {
   return (
@@ -21,6 +23,7 @@ export default function Home() {
       <Benefits />
       {/* <Testimonials /> */}
       <FinalCTA />
+      <CookieConsent />
       <Footer />
     </>
   );

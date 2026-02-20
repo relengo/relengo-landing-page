@@ -1,0 +1,26 @@
+{
+  "title": "Imprint",
+  "contact": {
+    "title": "Information according to § 5 TMG",
+    "details": "Relengo\n[Your Name/Company Name]\n[Street and Number]\n[Postal Code, City]\nGermany"
+  },
+  "contactDetails": {
+    "title": "Contact",
+    "info": "Email: info@relengo.app\nPhone: [Your Phone Number]\nWebsite: www.relengo.app"
+  },
+  "register": {
+    "hasRegistration": "false",
+    "title": "Register Entry",
+    "details": "Commercial Register: [HRB Number]\nRegister Court: [Court Location]\nVAT ID: [VAT Number]"
+  },
+  "responsible": {
+    "title": "Responsible for content according to § 55 Abs. 2 RStV",
+    "info": "[Name of Responsible Person]\n[Address]"
+  },
+  "dispute": {
+    "title": "EU Dispute Resolution",
+    "description": "The European Commission provides a platform for online dispute resolution (ODR):",
+    "linkLabel": "Link to platform:",
+    "notObligated": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+  }
+}

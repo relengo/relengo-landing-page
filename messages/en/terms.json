@@ -1,0 +1,57 @@
+{
+  "title": "Terms of Service",
+  "scope": {
+    "title": "Scope",
+    "description": "These Terms of Service apply to the use of the Relengo platform, operated by [Your Name/Company]. Relengo is a peer-to-peer rental marketplace for consumer goods and equipment."
+  },
+  "registration": {
+    "title": "Registration",
+    "clause1": "2.1 Using the platform requires registration. By registering, you confirm that you are at least 18 years old.",
+    "clause2": "2.2 You agree to provide truthful and complete information and keep it up to date."
+  },
+  "services": {
+    "title": "Services",
+    "clause1": "3.1 Relengo provides a platform through which users can offer and rent items.",
+    "clause2": "3.2 Relengo is not a party to the rental contracts between lenders and renters. The rental contract is exclusively between users.",
+    "clause3": "3.3 Relengo provides insurance coverage for rented items during the rental period."
+  },
+  "obligations": {
+    "title": "User Obligations",
+    "lenders": {
+      "title": "Lenders",
+      "item1": "Must be the owner or have the right to rent out the offered items",
+      "item2": "Must provide accurate descriptions and photos",
+      "item3": "Are liable for defects and damage to the rented item"
+    },
+    "renters": {
+      "title": "Renters",
+      "item1": "Must handle rented items with care",
+      "item2": "Are liable for damage during the rental period",
+      "item3": "Must return items on time"
+    }
+  },
+  "payment": {
+    "title": "Payment and Fees",
+    "clause1": "5.1 Payment is made through the platform. Relengo retains a service fee of [X%].",
+    "clause2": "5.2 Payout to lenders occurs after completion of the rental and return of the item."
+  },
+  "insurance": {
+    "title": "Insurance",
+    "description": "Relengo provides insurance coverage for all items rented through the platform. Details about insurance can be found in our insurance terms."
+  },
+  "liability": {
+    "title": "Liability",
+    "clause1": "7.1 Relengo is not liable for damages arising from rental contracts between users.",
+    "clause2": "7.2 Relengo is only liable for intent and gross negligence, except for breach of essential contractual obligations."
+  },
+  "termination": {
+    "title": "Termination",
+    "description": "Either party may terminate use of the platform at any time. Ongoing rental contracts remain unaffected."
+  },
+  "law": {
+    "title": "Applicable Law",
+    "description": "German law applies, excluding the UN Convention on Contracts for the International Sale of Goods."
+  },
+  "lastUpdated": "Last Updated",
+  "locale": "en-US"
+}

@@ -1,0 +1,97 @@
+{
+  "title": "Privacy Policy",
+  "controller": {
+    "title": "Data Controller",
+    "info": "Relengo\n[Your Name/Company Name]\n[Address]\nEmail: info@relengo.app"
+  },
+  "collection": {
+    "title": "Collection and Storage of Personal Data",
+    "legalBasis": "Legal Basis",
+    "storageDuration": "Storage Duration",
+    "website": {
+      "title": "When Visiting the Website",
+      "description": "When accessing our website, the following information is automatically collected:",
+      "item1": "IP address (anonymized)",
+      "item2": "Date and time of visit",
+      "item3": "Browser type and version",
+      "item4": "Operating system",
+      "item5": "Referrer URL",
+      "basis": "Art. 6(1)(f) GDPR (legitimate interest in system security)"
+    },
+    "waitlist": {
+      "title": "Waitlist Registration",
+      "description": "When signing up for the waitlist, we collect:",
+      "item1": "Name (optional)",
+      "item2": "Email address",
+      "item3": "Time of registration",
+      "basis": "Art. 6(1)(a) GDPR (consent)",
+      "duration": "Until revocation or up to 6 months after app launch"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "We use cookies to improve your user experience. You can adjust your cookie settings at any time via the cookie banner.",
+      "necessary": "Necessary Cookies",
+      "necessaryDesc": "Technically required for website functionality",
+      "analytics": "Analytics Cookies",
+      "analyticsDesc": "To improve our website (only with your consent)"
+    }
+  },
+  "thirdParties": {
+    "title": "Disclosure to Third Parties",
+    "hosting": {
+      "title": "Hosting",
+      "info": "Our website is hosted by [Your Hosting Provider, e.g., Vercel].\nLocation: [Location]\nA data processing agreement (DPA) has been concluded."
+    },
+    "email": {
+      "title": "Email Delivery",
+      "info": "For sending notifications, we use [Your Email Service, e.g., Mailchimp/SendGrid].\nA data processing agreement (DPA) has been concluded."
+    },
+    "analytics": {
+      "title": "Analytics Tools (optional)",
+      "info": "We use [e.g., Google Analytics] only with your consent to improve our website.\nLegal Basis: Art. 6(1)(a) GDPR"
+    }
+  },
+  "rights": {
+    "title": "Your Rights",
+    "description": "You have the following rights:",
+    "access": {
+      "title": "Right of Access (Art. 15 GDPR)",
+      "description": "You have the right to know which data we store about you"
+    },
+    "rectification": {
+      "title": "Right to Rectification (Art. 16 GDPR)",
+      "description": "Correction of incorrect data"
+    },
+    "erasure": {
+      "title": "Right to Erasure (Art. 17 GDPR)",
+      "description": "Deletion of your data under certain conditions"
+    },
+    "portability": {
+      "title": "Right to Data Portability (Art. 20 GDPR)",
+      "description": "Receive your data in a machine-readable format"
+    },
+    "objection": {
+      "title": "Right to Object (Art. 21 GDPR)",
+      "description": "Object to processing"
+    },
+    "complaint": {
+      "title": "Right to Complain",
+      "description": "Lodge a complaint with a data protection authority"
+    },
+    "contact": "Contact:"
+  },
+  "security": {
+    "title": "Data Security",
+    "description": "We use technical and organizational security measures to protect your data:",
+    "item1": "SSL/TLS encryption",
+    "item2": "Secure server infrastructure",
+    "item3": "Regular security updates",
+    "item4": "Access controls"
+  },
+  "changes": {
+    "title": "Changes to this Privacy Policy",
+    "description": "We reserve the right to update this privacy policy to reflect changes in legal requirements or changes to our services.",
+    "lastUpdated": "Last Updated",
+    "locale": "en-US"
+  }
+}

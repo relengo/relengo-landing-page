@@ -1,0 +1,26 @@
+{
+  "title": "Impressum",
+  "contact": {
+    "title": "Angaben gemäß § 5 TMG",
+    "details": "Relengo\n[Ihr Name/Firmenname]\n[Straße und Hausnummer]\n[PLZ, Stadt]\nDeutschland"
+  },
+  "contactDetails": {
+    "title": "Kontakt",
+    "info": "E-Mail: info@relengo.app\nTelefon: [Ihre Telefonnummer]\nWebsite: www.relengo.app"
+  },
+  "register": {
+    "hasRegistration": "false",
+    "title": "Registereintrag",
+    "details": "Handelsregister: [HRB-Nummer]\nRegistergericht: [Gerichtsstandort]\nUmsatzsteuer-ID: [USt-IdNr.]"
+  },
+  "responsible": {
+    "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
+    "info": "[Name der verantwortlichen Person]\n[Adresse]"
+  },
+  "dispute": {
+    "title": "EU-Streitschlichtung",
+    "description": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:",
+    "linkLabel": "Link zur Plattform:",
+    "notObligated": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+  }
+}

@@ -1,16 +1,18 @@
 {
   "Footer": {
-    "tagline": "Mehr nutzen. Weniger besitzen. Besser leben.",
+    "tagline": "Weniger besitzen. Mehr nutzen.",
     "socialLinkEmailLabel": "E-Mail",
     "copyright": "© 2026 Relengo. Alle Rechte vorbehalten.",
+    "imprint": "Impressum",
+    "imprintHref": "impressum",
     "privacyPolicy": "Datenschutz",
     "privacyPolicyHref": "datenschutz",
     "termsOfService": "AGB",
     "termsOfServiceHref": "agb",
     "contact": "Kontakt",
-    "contactHref": "#",
+    "contactHref": "kontakt",
     "languageSwitcher": "🇬🇧 English",
-    "languageSwitcherHref": "/"
+    "languageSwitcherHref": "/en"
   },
   "Navbar": {
     "howItWorks": "So funktioniert's",
@@ -42,7 +44,17 @@
     "toastSuccess": "Du bist auf der Liste! Wir melden uns bald.",
     "interestButtonRent": "Mieten",
     "interestButtonLend": "Verleihen",
-    "interestButtonBoth": "Beides"
+    "interestButtonBoth": "Beides",
+    "form": {
+      "appLaunchConsent": "Ich stimme zu, dass Relengo meine E-Mail-Adresse speichert, um mir einen Download-Link zu senden, sobald die App verfügbar ist, sowie ein exklusives Launch-Angebot. Ich kann meine Einwilligung jederzeit widerrufen.",
+      "marketingConsent": "Ich möchte zusätzlich Updates, Tipps und exklusive Angebote von Relengo erhalten (optional).",
+      "privacyLink": "Datenschutzerklärung",
+      "consentRequired": "Bitte bestätige, dass wir dir den App-Link zusenden dürfen.",
+      "requiredNote": "* Pflichtfeld"
+    }
+
+
+    
   },
   "HowItWorks": {
     "subtitle": "So funktioniert's",
@@ -218,7 +230,30 @@
     "trustSignalNoSpam": "Kein Spam",
     "trustSignalEarlyAccess": "Vorteile für Early Access",
     "appStoreAlt": "Im App Store herunterladen",
-    "googlePlayAlt": "Bei Google Play herunterladen"
+    "googlePlayAlt": "Bei Google Play herunterladen",
+    "form": {
+      "appLaunchConsent": "Ich stimme zu, dass Relengo meine E-Mail-Adresse speichert, um mir einen Download-Link zu senden, sobald die App verfügbar ist, sowie ein exklusives Launch-Angebot. Ich kann meine Einwilligung jederzeit widerrufen.",
+      "marketingConsent": "Ich möchte zusätzlich Updates, Tipps und exklusive Angebote von Relengo erhalten (optional).",
+      "privacyLink": "Datenschutzerklärung",
+      "consentRequired": "Bitte bestätige, dass wir dir den App-Link zusenden dürfen.",
+      "requiredNote": "* Pflichtfeld"
+    }
+  },
+  
+  "CookieConsent": {
+    "title": "Cookie-Einstellungen",
+    "description": "Wir nutzen Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Einige sind notwendig für die Funktion der Seite, andere helfen uns, die Nutzung zu verstehen und zu optimieren.",
+    "necessary": "Notwendige Cookies",
+    "necessaryDescription": "Erforderlich für grundlegende Funktionen",
+    "analytics": "Analyse-Cookies",
+    "analyticsDescription": "Helfen uns die Nutzung zu verstehen",
+    "acceptAll": "Alle akzeptieren",
+    "onlyNecessary": "Nur notwendige",
+    "settings": "Einstellungen",
+    "showLess": "Weniger anzeigen",
+    "privacy": "Datenschutz"
   }
-
+  
 }
+
+
