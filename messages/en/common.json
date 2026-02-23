@@ -36,12 +36,6 @@
     "buttonJoinWaitlist": "Join Waitlist",
     "buttonJoining": "Joining...",
     "waitlistCountText": "Join 1000+ others and get notified when the app is available.",
-    "categoryPills": [
-      "Outdoor Gear",
-      "Photography",
-      "DIY Tools",
-      "Sports Equipment"
-    ],
     "toastSuccess": "You're on the list! We'll be in touch soon.",
     "interestButtonRent": "Rent",
     "interestButtonLend": "Lend",
@@ -51,7 +45,8 @@
       "marketingConsent": "I would also like to receive updates, tips, and exclusive offers from Relengo (optional).",
       "privacyLink": "Privacy Policy",
       "consentRequired": "Please confirm that we may send you the app link.",
-      "requiredNote": "* Required field"
+      "requiredNote": "* Required field",
+      "genericError": "Something went wrong. Please try again."
     }
 
   },
@@ -218,7 +213,8 @@
       "marketingConsent": "I would also like to receive updates, tips, and exclusive offers from Relengo (optional).",
       "privacyLink": "Privacy Policy",
       "consentRequired": "Please confirm that we may send you the app link.",
-      "requiredNote": "* Required field"
+      "requiredNote": "* Required field",
+      "genericError": "Something went wrong. Please try again."
     }
   },
 

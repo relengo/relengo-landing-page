@@ -36,12 +36,6 @@
     "buttonJoinWaitlist": "Warteliste beitreten",
     "buttonJoining": "Wird eingetragen...",
     "waitlistCountText": "Über 1000 sind schon dabei. Hol dir Bescheid, sobald wir live gehen!",
-    "categoryPills": [
-      "Outdoor-Ausrüstung",
-      "Fotografie",
-      "Heimwerken",
-      "Sportgeräte"
-    ],
     "toastSuccess": "Du bist auf der Liste! Wir melden uns bald.",
     "interestButtonRent": "Mieten",
     "interestButtonLend": "Verleihen",
@@ -51,7 +45,8 @@
       "marketingConsent": "Ich möchte zusätzlich Updates, Tipps und exklusive Angebote von Relengo erhalten (optional).",
       "privacyLink": "Datenschutzerklärung",
       "consentRequired": "Bitte bestätige, dass wir dir den App-Link zusenden dürfen.",
-      "requiredNote": "* Pflichtfeld"
+      "requiredNote": "* Pflichtfeld",
+      "genericError": "Something went wrong. Please try again."
     }
 
 
@@ -237,7 +232,8 @@
       "marketingConsent": "Ich möchte zusätzlich Updates, Tipps und exklusive Angebote von Relengo erhalten (optional).",
       "privacyLink": "Datenschutzerklärung",
       "consentRequired": "Bitte bestätige, dass wir dir den App-Link zusenden dürfen.",
-      "requiredNote": "* Pflichtfeld"
+      "requiredNote": "* Pflichtfeld",
+      "genericError": "Something went wrong. Please try again."
     }
   },
   

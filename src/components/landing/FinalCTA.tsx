@@ -6,6 +6,9 @@ import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 
 
 export default function FinalCTA() {
@@ -21,34 +24,40 @@ export default function FinalCTA() {
   const [error, setError] = useState("");
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    
+
     if (!email) return;
-    
+
     // Validate required consent
     if (!appLaunchConsent) {
-      setError(t('form.consentRequired'));
+      setError(t("form.consentRequired"));
       return;
     }
 
     setLoading(true);
-    
-    // TODO: Update when base44 is ready
-    //await base44.entities.WaitlistSignup.create({
-    //  email,
-    //  name,
-    //  phone,
-    //  interest,
-    //  appLaunchConsent,
-    //  marketingConsent,
-    //  timestamp: new Date().toISOString(),
-    //});
-    
-    toast.success(t('toastSuccess'));
-    setSubmitted(true);
-    setLoading(false);
+
+    try {
+      await addDoc(collection(db, "waitlist"), {
+        name: name || null,
+        email,
+        phone: phone || null,
+        interest, // "renter" | "lender" | "both"
+        appLaunchConsent: true,
+        marketingConsent: !!marketingConsent,
+        signedUpAt: serverTimestamp(),
+        source: "final-cta",
+      });
+
+      toast.success(t("toastSuccess"));
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setError(t("form.genericError"));
+    } finally {
+      setLoading(false);
+    }
   };
 
 
@@ -200,8 +209,8 @@ export default function FinalCTA() {
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full h-14 bg-[#FDD35B] hover:bg-[#FFC843] text-[#1E1E1E] rounded-full text-lg font-semibold transition-all hover:scale-105"
+                  disabled={loading || !appLaunchConsent}
+                  className="w-full h-14 bg-[#FDD35B] hover:bg-[#FFC843] text-[#1E1E1E] rounded-full text-lg font-semibold transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {loading ? t('joiningButton') : t('joinWaitlistButton')}
                   <ArrowRight className="ml-2 w-5 h-5 inline" />

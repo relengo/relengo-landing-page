@@ -4,6 +4,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 
 export default function HeroSection() {
@@ -21,36 +23,44 @@ export default function HeroSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    
+
     if (!email || !name) return;
-    
+
     // Validate required consent
     if (!appLaunchConsent) {
-      setError(t('form.consentRequired'));
+      setError(t("form.consentRequired"));
       return;
     }
 
     setLoading(true);
-    
-    // TODO: Update when base44 is ready
-    // await base44.entities.WaitlistSignup.create({ 
-    //   email, 
-    //   phone, 
-    //   name, 
-    //   interest,
-    //   appLaunchConsent,
-    //   marketingConsent,
-    //   timestamp: new Date().toISOString(),
-    // });
-    
-    toast.success(t("toastSuccess"));
-    setEmail("");
-    setPhone("");
-    setName("");
-    setAppLaunchConsent(false);
-    setMarketingConsent(false);
-    setLoading(false);
+
+    try {
+      await addDoc(collection(db, "waitlist"), {
+        name,
+        email,
+        phone: phone || null,
+        interest, // "renter" | "lender" | "both"
+        appLaunchConsent: true,
+        marketingConsent: !!marketingConsent,
+        signedUpAt: serverTimestamp(),
+        source: "hero-section", // helps you later see where they signed up
+      });
+
+      toast.success(t("toastSuccess"));
+      setEmail("");
+      setPhone("");
+      setName("");
+      setInterest("lender"); // reset to default
+      setAppLaunchConsent(true);
+      setMarketingConsent(false);
+    } catch (err) {
+      console.error(err);
+      setError(t("form.genericError"));
+    } finally {
+      setLoading(false);
+    }
   };
+
 
 
   return (
