@@ -12,7 +12,7 @@ export default function HeroSection() {
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [interest, setInterest] = useState<"renter" | "lender" | "both">("lender"); // default lending
-  const [appLaunchConsent, setAppLaunchConsent] = useState(false);
+  const [appLaunchConsent, setAppLaunchConsent] = useState(true);
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -162,7 +162,7 @@ export default function HeroSection() {
                 </span>
               </label>
 
-              <label className="flex items-start gap-3 text-xs text-gray-700">
+              <label className="flex items-start gap-3 text-[11px] text-gray-700">
                 <input
                   type="checkbox"
                   checked={marketingConsent}

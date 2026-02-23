@@ -14,7 +14,7 @@ export default function FinalCTA() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [interest, setInterest] = useState("both");
-  const [appLaunchConsent, setAppLaunchConsent] = useState(false);
+  const [appLaunchConsent, setAppLaunchConsent] = useState(true);
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -162,7 +162,7 @@ export default function FinalCTA() {
 
                 {/* Consent Checkboxes */}
                 <div className="text-left space-y-3 bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
-                  <label className="flex items-start gap-3 text-sm text-white">
+                  <label className="flex items-start gap-3 text-xs text-white">
                     <input
                       type="checkbox"
                       checked={appLaunchConsent}
@@ -179,7 +179,7 @@ export default function FinalCTA() {
                     </span>
                   </label>
 
-                  <label className="flex items-start gap-3 text-sm text-white">
+                  <label className="flex items-start gap-3 text-xs text-white">
                     <input
                       type="checkbox"
                       checked={marketingConsent}

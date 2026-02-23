@@ -8,7 +8,7 @@ export default function Hero() {
   const t = useTranslations("Hero");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [appLaunchConsent, setAppLaunchConsent] = useState(false);
+  const [appLaunchConsent, setAppLaunchConsent] = useState(true);
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState("");
 
