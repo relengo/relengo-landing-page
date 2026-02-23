@@ -12,7 +12,8 @@
     "contact": "Contact",
     "contactHref": "contact",
     "languageSwitcher": "🇩🇪 Deutsch",
-    "languageSwitcherHref": "/de"
+    "languageSwitcherHref": "/de",
+    "cookieSettings": "Cookie Settings"
   },
   "Navbar": {
     "howItWorks": "How it works",
@@ -46,7 +47,7 @@
     "interestButtonLend": "Lend",
     "interestButtonBoth": "Both",
     "form": {
-      "appLaunchConsent": "I agree that Relengo may store my email address to send me a download link when the app is available, as well as an exclusive launch offer. I can revoke my consent at any time.",
+      "appLaunchConsent": "I agree that Relengo may store my email address to send me a download link & exclusive launch offer when the app is available. I can revoke my consent at any time.",
       "marketingConsent": "I would also like to receive updates, tips, and exclusive offers from Relengo (optional).",
       "privacyLink": "Privacy Policy",
       "consentRequired": "Please confirm that we may send you the app link.",
@@ -233,6 +234,21 @@
     "settings": "Settings",
     "showLess": "Show Less",
     "privacy": "Privacy"
-  }
-  
+  },
+
+  "CookieSettings": {
+    "title": "Cookie Settings",
+    "subtitle": "Manage your cookie preferences here. You can enable or disable different types of cookies below.",
+    "necessary": "Necessary Cookies",
+    "necessaryDesc": "Essential for the website to function properly. These cannot be disabled.",
+    "analytics": "Analytics Cookies",
+    "analyticsDesc": "Help us understand how visitors interact with our website.",
+    "marketing": "Marketing Cookies",
+    "marketingDesc": "Used to track visitors across websites to display relevant advertisements.",
+    "functional": "Functional Cookies",
+    "functionalDesc": "Enable enhanced functionality and personalization.",
+    "saveButton": "Save Preferences",
+    "cancelButton": "Cancel",
+    "savedMessage": "Cookie preferences saved!"
+  } 
 }

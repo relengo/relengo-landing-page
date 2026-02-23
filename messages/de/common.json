@@ -12,7 +12,8 @@
     "contact": "Kontakt",
     "contactHref": "kontakt",
     "languageSwitcher": "🇬🇧 English",
-    "languageSwitcherHref": "/en"
+    "languageSwitcherHref": "/en",
+    "cookieSettings": "Cookie-Einstellungen"
   },
   "Navbar": {
     "howItWorks": "So funktioniert's",
@@ -46,7 +47,7 @@
     "interestButtonLend": "Verleihen",
     "interestButtonBoth": "Beides",
     "form": {
-      "appLaunchConsent": "Ich stimme zu, dass Relengo meine E-Mail-Adresse speichert, um mir einen Download-Link zu senden, sobald die App verfügbar ist, sowie ein exklusives Launch-Angebot. Ich kann meine Einwilligung jederzeit widerrufen.",
+      "appLaunchConsent": "Ich stimme zu, dass Relengo meine E-Mail-Adresse speichern darf, um mir einen Download-Link und ein exklusives Launch-Angebot zu senden, sobald die App verfügbar ist. Ich kann meine Einwilligung jederzeit widerrufen.",
       "marketingConsent": "Ich möchte zusätzlich Updates, Tipps und exklusive Angebote von Relengo erhalten (optional).",
       "privacyLink": "Datenschutzerklärung",
       "consentRequired": "Bitte bestätige, dass wir dir den App-Link zusenden dürfen.",
@@ -258,6 +259,21 @@
     "title": "Oops!",
     "description": "Es sieht so aus, als hättest du einen leeren Ort gefunden.",
     "backHome": "Zurück zur Startseite"
+  },
+  "CookieSettings": {
+    "title": "Cookie-Einstellungen",
+    "subtitle": "Verwalten Sie hier Ihre Cookie-Einstellungen. Sie können verschiedene Cookie-Typen unten aktivieren oder deaktivieren.",
+    "necessary": "Notwendige Cookies",
+    "necessaryDesc": "Für das ordnungsgemäße Funktionieren der Website erforderlich. Diese können nicht deaktiviert werden.",
+    "analytics": "Analyse-Cookies",
+    "analyticsDesc": "Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.",
+    "marketing": "Marketing-Cookies",
+    "marketingDesc": "Werden verwendet, um Besucher über Websites hinweg zu verfolgen und relevante Werbung anzuzeigen.",
+    "functional": "Funktionale Cookies",
+    "functionalDesc": "Ermöglichen erweiterte Funktionen und Personalisierung.",
+    "saveButton": "Einstellungen speichern",
+    "cancelButton": "Abbrechen",
+    "savedMessage": "Cookie-Einstellungen gespeichert!"
   }
 }
 

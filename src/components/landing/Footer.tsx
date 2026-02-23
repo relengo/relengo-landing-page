@@ -114,6 +114,12 @@ export default function Footer() {
             >
               {t('contact')}
             </Link>
+            <Link 
+              href={`/${currentLocale}/cookie-settings`}
+              className="hover:text-[#1A1A1A] transition-colors whitespace-nowrap"
+            >
+              {t('cookieSettings')}
+            </Link>
             <button
               onClick={() => switchLanguage(otherLocale)}
               className="hover:text-[#1A1A1A] transition-colors whitespace-nowrap cursor-pointer underline"

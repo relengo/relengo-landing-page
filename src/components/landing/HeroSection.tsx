@@ -54,7 +54,7 @@ export default function HeroSection() {
 
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-8 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#FFC843] rounded-full opacity-20 blur-3xl" />
       <div className="absolute bottom-40 right-20 w-48 h-48 bg-[#54B9D1] rounded-full opacity-20 blur-3xl" />
@@ -183,8 +183,8 @@ export default function HeroSection() {
 
             <button
               type="submit"
-              disabled={loading}
-              className="w-full h-14 bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full text-lg font-semibold transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              disabled={loading || !appLaunchConsent}
+              className="w-full h-14 bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full text-lg font-semibold transition-all hover:scale-[1.02] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? t("buttonJoining") : t("buttonJoinWaitlist")}
               <ArrowRight className="w-5 h-5" />
@@ -211,23 +211,6 @@ export default function HeroSection() {
               alt="Get it on Google Play"
               className="h-10 opacity-50 cursor-not-allowed"
             />
-          </div>
-
-
-          {/* Category Pills */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-            {t.raw("categoryPills").map((cat: string, i: number) => {
-              const colors = ["#FFC843", "#54B9D1", "#F68B28", "#F5A4B8"];
-              return (
-                <span
-                  key={cat}
-                  className="px-4 py-2 rounded-full text-sm font-medium transition-transform hover:scale-105 cursor-default"
-                  style={{ backgroundColor: `${colors[i]}20`, color: "#1A1A1A" }}
-                >
-                  {cat}
-                </span>
-              );
-            })}
           </div>
         </div>
 
