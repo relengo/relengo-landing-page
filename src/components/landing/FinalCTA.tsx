@@ -21,6 +21,8 @@ export default function FinalCTA() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [cooldown, setCooldown] = useState(false);
+
 
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -52,6 +54,9 @@ export default function FinalCTA() {
 
       toast.success(t("toastSuccess"));
       setSubmitted(true);
+      setCooldown(true);
+      setTimeout(() => setCooldown(false), 15000); // 15 second cooldown
+
     } catch (err) {
       console.error(err);
       setError(t("form.genericError"));
@@ -103,7 +108,7 @@ export default function FinalCTA() {
 
 
             {submitted ? (
-              <div className="flex items-center justify-center gap-3 text-[#54B9D1]">
+              <div className="flex items-center justify-center gap-3 text-[#FDD35B]">
                 <CheckCircle className="w-6 h-6" />
                 <span className="text-lg font-medium">
                   {t('submittedMessage')}
@@ -208,12 +213,12 @@ export default function FinalCTA() {
 
 
                 <button
-                  type="submit"
-                  disabled={loading || !appLaunchConsent}
-                  className="w-full h-14 bg-[#FDD35B] hover:bg-[#FFC843] text-[#1E1E1E] rounded-full text-lg font-semibold transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {loading ? t('joiningButton') : t('joinWaitlistButton')}
-                  <ArrowRight className="ml-2 w-5 h-5 inline" />
+                   type="submit"
+                   disabled={loading || !appLaunchConsent || cooldown}
+                   className="w-full h-14 bg-[#FDD35B] hover:bg-[#FFC843] text-[#1E1E1E] rounded-full text-lg font-semibold transition-all hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                   {loading ? t("buttonJoining") : cooldown ? t("buttonJoining") : t("joinWaitlistButton")}
+                    <ArrowRight className="ml-2 w-5 h-5 inline" />
                 </button>
 
                 <p className="text-xs text-white/70 text-center">

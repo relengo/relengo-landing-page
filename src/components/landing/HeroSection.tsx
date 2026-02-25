@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { db } from "@/lib/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { Toaster } from "sonner";
 
 
 export default function HeroSection() {
@@ -18,6 +19,9 @@ export default function HeroSection() {
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [cooldown, setCooldown] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,6 +53,9 @@ export default function HeroSection() {
 
 
       toast.success(t("toastSuccess"));
+      setSubmitted(true);  // ← add this
+      setCooldown(true);
+      setTimeout(() => setCooldown(false), 15000);
       setEmail("");
       setPhone("");
       setName("");
@@ -68,6 +75,7 @@ export default function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-8 relative overflow-hidden">
       {/* Decorative elements */}
+      <Toaster position="top-center" richColors />  {/* ← add this line */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#FFC843] rounded-full opacity-20 blur-3xl" />
       <div className="absolute bottom-40 right-20 w-48 h-48 bg-[#54B9D1] rounded-full opacity-20 blur-3xl" />
       <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-[#F5A4B8] rounded-full opacity-20 blur-3xl" />
@@ -112,6 +120,12 @@ export default function HeroSection() {
 
 
           {/* Waitlist Form */}
+          {submitted ? (
+            <div className="flex items-center gap-3 bg-green-50 border-2 border-green-200 px-6 py-4 rounded-2xl mb-6">
+              <span className="text-2xl">🎉</span>
+              <p className="text-[#1A1A1A] font-medium">{t("toastSuccess")}</p>
+            </div>
+          ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0 mb-6">
             <input
               type="text"
@@ -195,10 +209,10 @@ export default function HeroSection() {
 
             <button
               type="submit"
-              disabled={loading || !appLaunchConsent}
+              disabled={loading || !appLaunchConsent || cooldown}
               className="w-full h-14 bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full text-lg font-semibold transition-all hover:scale-[1.02] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {loading ? t("buttonJoining") : t("buttonJoinWaitlist")}
+              {loading ? t("joiningButton") : cooldown ? t("joiningButton") : t("buttonJoinWaitlist")}
               <ArrowRight className="w-5 h-5" />
             </button>
 
@@ -206,7 +220,7 @@ export default function HeroSection() {
               {t('form.requiredNote')}
             </p>
           </form>
-
+          )}
 
           <p className="text-sm text-gray-500 mb-6">{t("waitlistCountText")}</p>
 
