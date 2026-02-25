@@ -2,12 +2,11 @@
 import React, { useState } from "react";
 // No imports needed for native HTML
 import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
-//import { base44 } from "@/api/base44Client";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 
 
@@ -39,15 +38,16 @@ export default function FinalCTA() {
     setLoading(true);
 
     try {
-      await addDoc(collection(db, "waitlist"), {
+      await setDoc(doc(db, "waitlist", email.toLowerCase()), {
         name: name || null,
         email,
         phone: phone || null,
-        interest, // "renter" | "lender" | "both"
+        interest,
         appLaunchConsent: true,
         marketingConsent: !!marketingConsent,
         signedUpAt: serverTimestamp(),
         source: "final-cta",
+        createdAt: serverTimestamp(),
       });
 
       toast.success(t("toastSuccess"));

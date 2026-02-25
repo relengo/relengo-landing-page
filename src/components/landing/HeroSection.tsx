@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 
 export default function HeroSection() {
@@ -35,16 +35,18 @@ export default function HeroSection() {
     setLoading(true);
 
     try {
-      await addDoc(collection(db, "waitlist"), {
+      await setDoc(doc(db, "waitlist", email.toLowerCase()), {
         name,
         email,
         phone: phone || null,
-        interest, // "renter" | "lender" | "both"
+        interest,
         appLaunchConsent: true,
         marketingConsent: !!marketingConsent,
         signedUpAt: serverTimestamp(),
-        source: "hero-section", // helps you later see where they signed up
+        source: "hero-section",
+        createdAt: serverTimestamp(),
       });
+
 
       toast.success(t("toastSuccess"));
       setEmail("");
