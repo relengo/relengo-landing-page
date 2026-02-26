@@ -217,7 +217,7 @@ export default function FinalCTA() {
                    disabled={loading || !appLaunchConsent || cooldown}
                    className="w-full h-14 bg-[#FDD35B] hover:bg-[#FFC843] text-[#1E1E1E] rounded-full text-lg font-semibold transition-all hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
-                   {loading ? t("buttonJoining") : cooldown ? t("buttonJoining") : t("joinWaitlistButton")}
+                   {loading ? t("joiningButton") : cooldown ? t("joiningButton") : t("joinWaitlistButton")}
                     <ArrowRight className="ml-2 w-5 h-5 inline" />
                 </button>
 
