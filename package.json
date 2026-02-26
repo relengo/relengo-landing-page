@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "opennextjs-cloudflare build",
+    "pages:deploy": "opennextjs-cloudflare build && wrangler pages deploy"
   },
   "dependencies": {
     "@radix-ui/react-menubar": "1.1.16",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@opennextjs/cloudflare": "^1.17.1",
     "@types/node": "^20",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
@@ -37,7 +40,8 @@
     "eslint-config-next": "15.5.7",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.69.0"
   },
   "pnpm": {
     "overrides": {
