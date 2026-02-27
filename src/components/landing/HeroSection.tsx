@@ -4,8 +4,6 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { getDb } from "@/lib/firebase";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { Toaster } from "sonner";
 
 
@@ -27,19 +25,18 @@ export default function HeroSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
     if (!email || !name) return;
-
-    // Validate required consent
     if (!appLaunchConsent) {
       setError(t("form.consentRequired"));
       return;
     }
-
     setLoading(true);
 
     try {
-      const db = getDb(); // ← add this line
+      const { getDb } = await import("@/lib/firebase");
+      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+      const db = getDb();
+
       await setDoc(doc(db, "waitlist", email.toLowerCase()), {
         name,
         email,

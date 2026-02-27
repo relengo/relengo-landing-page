@@ -5,8 +5,6 @@ import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { getDb } from "@/lib/firebase";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 
 
@@ -25,31 +23,30 @@ export default function FinalCTA() {
 
 
 
-    const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
-    if (!email) return;
-
-    // Validate required consent
+    if (!email || !name) return;
     if (!appLaunchConsent) {
       setError(t("form.consentRequired"));
       return;
     }
-
     setLoading(true);
 
     try {
-      const db = getDb(); // ← add this line
+      const { getDb } = await import("@/lib/firebase");
+      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+      const db = getDb();
+
       await setDoc(doc(db, "waitlist", email.toLowerCase()), {
-        name: name || null,
+        name,
         email,
         phone: phone || null,
         interest,
         appLaunchConsent: true,
         marketingConsent: !!marketingConsent,
         signedUpAt: serverTimestamp(),
-        source: "final-cta",
+        source: "hero-section",
         createdAt: serverTimestamp(),
       });
 
