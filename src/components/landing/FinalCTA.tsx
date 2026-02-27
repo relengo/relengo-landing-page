@@ -5,7 +5,7 @@ import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { db } from "@/lib/firebase";
+import { getDb } from "@/lib/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 
@@ -40,6 +40,7 @@ export default function FinalCTA() {
     setLoading(true);
 
     try {
+      const db = getDb(); // ← add this line
       await setDoc(doc(db, "waitlist", email.toLowerCase()), {
         name: name || null,
         email,

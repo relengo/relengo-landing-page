@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -10,5 +10,11 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const getFirebaseApp = () => {
+  if (typeof window === "undefined") {
+    throw new Error("Firebase must only be used client-side");
+  }
+  return getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+};
+
+export const getDb = () => getFirestore(getFirebaseApp());
