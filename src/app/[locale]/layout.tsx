@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins } from 'next/font/google';
+import FirebaseAnalytics from '@/components/FirebaseAnalytics';
 
 
 const poppins = Poppins({
@@ -49,6 +50,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           {children}
         </NextIntlClientProvider>
+        <FirebaseAnalytics />  {/* ← add here */}
       </body>
     </html>
   );
