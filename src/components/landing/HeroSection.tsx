@@ -71,7 +71,7 @@ export default function HeroSection() {
 
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-8 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-4 relative overflow-hidden">
       {/* Decorative elements */}
       <Toaster position="top-center" richColors />  {/* ← add this line */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#FFC843] rounded-full opacity-20 blur-3xl" />
@@ -92,7 +92,7 @@ export default function HeroSection() {
 
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1A1A1A] tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#1A1A1A] tracking-tight leading-[1.1] mb-6">
             {t("mainHeadlinePart1")}
             <br />
             <span className="relative">
@@ -111,7 +111,7 @@ export default function HeroSection() {
 
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
+          <p className="text-base md:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-4 leading-relaxed">
             {t("subheadlinePart1")}
             <span className="text-[#1A1A1A] font-medium"> {t("subheadlinePart2")}</span>
           </p>

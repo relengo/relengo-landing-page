@@ -54,7 +54,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-12 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-white/90 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
     >
@@ -103,20 +103,22 @@ export default function Navbar() {
           </button>
         </div>
 
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
-        </button>
+      {/* Mobile — Language + Menu */}
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={() => switchLanguage(otherLocale)}
+            className="text-base font-medium text-gray-600 hover:text-[#1A1A1A] transition-colors"
+          >
+            {currentLocale === 'de' ? '🇬🇧 EN' : '🇩🇪 DE'}
+          </button>
+          <button
+            className="p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
-
 
       {/* Mobile Menu */}
       {mobileOpen && (
@@ -143,12 +145,6 @@ export default function Navbar() {
             >
               {t('about')}
             </a>
-            <button
-              onClick={handleLanguageSwitch}
-              className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2 text-left"
-            >
-              {currentLocale === 'de' ? '🇬🇧 English' : '🇩🇪 Deutsch'}
-            </button>
             <button
               onClick={scrollToWaitlist}
               className="bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full py-3 font-medium transition-colors"

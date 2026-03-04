@@ -27,9 +27,9 @@
   "HeroSection": {
     "badgeText": "Coming Soon to iOS & Android",
     "mainHeadlinePart1": "Lend what you have.",
-    "mainHeadlinePart2": "Access what you need.",
+    "mainHeadlinePart2": "Access what you need",
     "subheadlinePart1": "Relengo connects you with people nearby to lend and rent outdoor gear, cameras, tools, and more.",
-    "subheadlinePart2": "Generate Value from your idle assets, and access items with lest cost.",
+    "subheadlinePart2": "Generate Value from your idle assets, and access items with less cost.",
     "formPlaceholderName": "Enter your name",
     "formPlaceholderEmail": "Enter your email",
     "formPlaceholderPhone": "Phone number",
@@ -246,5 +246,5 @@
     "saveButton": "Save Preferences",
     "cancelButton": "Cancel",
     "savedMessage": "Cookie preferences saved!"
-  } 
+  }
 }
