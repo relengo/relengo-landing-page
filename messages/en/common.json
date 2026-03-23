@@ -20,7 +20,7 @@
     "categories": "Categories",
     "about": "About",
     "joinWaitlist": "Join Waitlist",
-    "languageSwitcherDesktop": "🇩🇪 DE",
+    "languageSwitcherDesktop": "DE",
     "languageSwitcherMobile": "🇩🇪 Deutsch",
     "languageSwitcherHref": "/de"
   },
@@ -193,7 +193,7 @@
   "FinalCTA": {
     "toastSuccess": "Welcome to the movement! We'll be in touch.",
     "headline": "Be the first to get notified",
-    "description": "Join the waitlist for to be the first to get notified when the app is released and benefit from our exclusive early joiners' offers.",
+    "description": "Join the waitlist to be the first to get notified when the app is released and benefit from our early joiners' offers.",
     "submittedMessage": "Welcome to the movement! We'll be in touch.",
     "formPlaceholderName": "Enter your name",
     "formPlaceholderEmail": "Enter your email",

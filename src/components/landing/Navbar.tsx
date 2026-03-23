@@ -54,17 +54,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-12 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-lg shadow-sm" : "bg-transparent"
-      }`}
+      className="fixed top-12 left-0 right-0 z-50 bg-white shadow-sm"
     >
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${currentLocale}`} className="flex items-center">
           <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/4228a2497_relengo_logo_logo_1.png"
+            src="/logo.svg"
             alt="Relengo"
-            className="h-14 w-auto"
+            className="h-8 w-auto"
           />
         </Link>
 

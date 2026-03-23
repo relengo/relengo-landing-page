@@ -72,7 +72,7 @@ export default function FinalCTA() {
 
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="bg-[#67B8D5] rounded-[2.5rem] p-8 md:p-16 text-center relative overflow-hidden">
+        <div className="bg-[#67B8D5] rounded-[2.5rem] py-8 px-4 md:py-16 md:px-16 text-center relative overflow-hidden">
           {/* Background pattern */}
           <div className="absolute inset-0 opacity-5">
             <div
@@ -87,14 +87,13 @@ export default function FinalCTA() {
 
           <div className="relative z-20">
             {/* Logo */}
-              <a href="/" className="flex items-center justify-center">
+              <Link href={`/`} className="flex items-center justify-center">
                 <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/4228a2497_relengo_logo_logo_1.png"
-                  alt="Relengo"
-                  className="h-13 w-20"
+                  src="/app-icon.svg"
+                  alt="Relengo App Icon"
+                  className="h-[78px] w-auto"
                 />
-              </a>
-
+              </Link>
 
             {/* Headline */}
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 mt-4">
@@ -115,7 +114,7 @@ export default function FinalCTA() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="space-y-4 max-w-md mx-auto"
+                className="space-y-4 max-w-lg mx-auto"
               >
                 <input
                   type="text"

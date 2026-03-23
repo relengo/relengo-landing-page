@@ -118,7 +118,7 @@ export default function HeroSection() {
 
 
           {/* Waitlist Form */}
-          {submitted ? (
+          {/* {submitted ? (
             <div className="flex items-center gap-3 bg-green-50 border-2 border-green-200 px-6 py-4 rounded-2xl mb-6">
               <span className="text-2xl">🎉</span>
               <p className="text-[#1A1A1A] font-medium">{t("toastSuccess")}</p>
@@ -132,19 +132,19 @@ export default function HeroSection() {
               onChange={(e) => setName(e.target.value)}
               required
               className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-            />
+            /> */}
 
 
-            <input
+            {/* <input
               type="email"
               placeholder={t("formPlaceholderEmail")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-            />
+            /> */}
             
-            {/* Interest buttons */}
+            {/* Interest buttons
             <div className="flex gap-2 w-full py-1">
               {[
                 { value: "renter", label: t("interestButtonRent") },
@@ -164,10 +164,10 @@ export default function HeroSection() {
                   {option.label}
                 </button>
               ))}
-            </div>
+            </div> */}
 
 
-            {/* Consent Checkboxes */}
+            {/* Consent Checkboxes
             <div className="text-left space-y-3 bg-gray-50 p-4 rounded-2xl border-2 border-gray-100">
               <label className="flex items-start gap-3 text-[11px] text-gray-700">
                 <input
@@ -195,11 +195,11 @@ export default function HeroSection() {
                 />
                 <span>{t('form.marketingConsent')}</span>
               </label>
-            </div>
+            </div> */}
 
 
             {/* Error Message */}
-            {error && (
+            {/* {error && (
               <p className="text-red-600 bg-red-50 px-4 py-2 rounded-full text-sm text-center border-2 border-red-200">
                 {error}
               </p>
@@ -218,7 +218,7 @@ export default function HeroSection() {
               {t('form.requiredNote')}
             </p>
           </form>
-          )}
+          )} */}
 
           <p className="text-sm text-gray-500 mb-6">{t("waitlistCountText")}</p>
 

@@ -20,14 +20,14 @@
     "categories": "Kategorien",
     "about": "Über uns",
     "joinWaitlist": "Warteliste beitreten",
-    "languageSwitcherDesktop": "🇬🇧 EN",
+    "languageSwitcherDesktop": "EN",
     "languageSwitcherMobile": "🇬🇧 English",
     "languageSwitcherHref": "/"
   },
   "HeroSection": {
     "badgeText": "Bald verfügbar für iOS & Android",
     "mainHeadlinePart1": "Teile, was du hast.",
-    "mainHeadlinePart2": "Bekomm, was du brauchst.",
+    "mainHeadlinePart2": "Bekomm, was du brauchst",
     "subheadlinePart1": "Relengo verbindet dich mit Menschen in deiner Nähe, um Outdoor-Ausrüstung, Kameras, Werkzeuge und mehr zu verleihen und zu mieten.",
     "subheadlinePart2": "Ungenutztes zu Geld machen, Teures einfach leihen.",
     "formPlaceholderName": "Dein Name",
@@ -212,7 +212,7 @@
  "FinalCTA": {
     "toastSuccess": "Willkommen bei der Bewegung! Wir melden uns bei dir.",
     "headline": "Sei der Erste, der informiert wird",
-    "description": "Trag dich in die Warteliste ein, um als Erste:r benachrichtigt zu werden, sobald die App verfügbar ist – und profitiere von exklusiven Vorteilen für Early Joiner.",
+    "description": "Trag dich in die Warteliste ein, um als Erste:r benachrichtigt zu werden, sobald die App verfügbar ist – und profitiere von Vorteilen für Early Joiner.",
     "submittedMessage": "Willkommen bei der Bewegung! Wir melden uns bei dir.",
     "formPlaceholderName": "Gib deinen Namen ein",
     "formPlaceholderEmail": "Gib deine E-Mail ein",
