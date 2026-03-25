@@ -1,95 +1,32 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { Toaster } from "sonner";
-
 
 export default function HeroSection() {
   const t = useTranslations("HeroSection");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
-  const [interest, setInterest] = useState<"renter" | "lender" | "both">("lender"); // default lending
-  const [appLaunchConsent, setAppLaunchConsent] = useState(true);
-  const [marketingConsent, setMarketingConsent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [cooldown, setCooldown] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
-
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    if (!email || !name) return;
-    if (!appLaunchConsent) {
-      setError(t("form.consentRequired"));
-      return;
-    }
-    setLoading(true);
-
-    try {
-      const { getDb } = await import("@/lib/firebase");
-      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
-      const db = getDb();
-
-      await setDoc(doc(db, "waitlist", email.toLowerCase()), {
-        name,
-        email,
-        phone: phone || null,
-        interest,
-        appLaunchConsent: true,
-        marketingConsent: !!marketingConsent,
-        signedUpAt: serverTimestamp(),
-        source: "hero-section",
-        createdAt: serverTimestamp(),
-      });
-
-
-      toast.success(t("toastSuccess"));
-      setSubmitted(true);  // ← add this
-      setCooldown(true);
-      setTimeout(() => setCooldown(false), 15000);
-      setEmail("");
-      setPhone("");
-      setName("");
-      setInterest("lender"); // reset to default
-      setAppLaunchConsent(true);
-      setMarketingConsent(false);
-    } catch (err) {
-      console.error(err);
-      setError(t("form.genericError"));
-    } finally {
-      setLoading(false);
-    }
+  const scrollToWaitlist = () => {
+    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
   };
 
-
-
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-4 relative overflow-hidden">
-      {/* Decorative elements */}
-      <Toaster position="top-center" richColors />  {/* ← add this line */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#FFC843] rounded-full opacity-20 blur-3xl" />
-      <div className="absolute bottom-40 right-20 w-48 h-48 bg-[#54B9D1] rounded-full opacity-20 blur-3xl" />
-      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-[#F5A4B8] rounded-full opacity-20 blur-3xl" />
+    <section className="relative bg-[#FCF8EC] flex items-center overflow-hidden">
 
+      {/* Decorative background blobs */}
+      <div className="absolute top-20 right-0 w-96 h-96 bg-[#FDD35B]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-72 h-72 bg-[#F1A8B9]/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        {/* Left Side - Text Content */}
-        <div className="flex-1 text-center lg:text-left">
+      <div className="max-w-6xl mx-auto px-6 pt-28 pb-2 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        {/* Left / Center on mobile — Text Content */}
+        <div className="flex flex-col items-center text-center md:items-center md:text-center gap-6">
+
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-8 border border-gray-100">
-            <Sparkles className="w-4 h-4 text-[#F68B28]" />
-            <span className="text-sm font-medium text-[#1A1A1A]">
-              {t("badgeText")}
-            </span>
+          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 text-sm font-medium text-gray-600 shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#F57B10]" />
+            {t("badgeText")}
           </div>
-
 
           {/* Main Headline */}
           <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#1A1A1A] tracking-tight leading-[1.1] mb-6">
@@ -109,148 +46,61 @@ export default function HeroSection() {
             <span className="text-[#F68B28]">.</span>
           </h1>
 
-
           {/* Subheadline */}
-          <p className="text-base md:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-4 leading-relaxed">
-            {t("subheadlinePart1")}
-            <span className="text-[#1A1A1A] font-medium"> {t("subheadlinePart2")}</span>
+          <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+            {t("subheadlinePart1")}{" "}
+            <strong>{t("subheadlinePart2")}</strong>
           </p>
 
-
-          {/* Waitlist Form */}
-          {/* {submitted ? (
-            <div className="flex items-center gap-3 bg-green-50 border-2 border-green-200 px-6 py-4 rounded-2xl mb-6">
-              <span className="text-2xl">🎉</span>
-              <p className="text-[#1A1A1A] font-medium">{t("toastSuccess")}</p>
-            </div>
-          ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0 mb-6">
-            <input
-              type="text"
-              placeholder={t("formPlaceholderName")}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-            /> */}
-
-
-            {/* <input
-              type="email"
-              placeholder={t("formPlaceholderEmail")}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="h-12 px-5 text-base border-2 border-gray-200 focus:border-[#1A1A1A] rounded-full bg-white outline-none transition-colors"
-            /> */}
-            
-            {/* Interest buttons
-            <div className="flex gap-2 w-full py-1">
-              {[
-                { value: "renter", label: t("interestButtonRent") },
-                { value: "lender", label: t("interestButtonLend") },
-                { value: "both", label: t("interestButtonBoth") }
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  onClick={() => setInterest(option.value as any)}
-                  className={`flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    interest === option.value
-                      ? "bg-[#FFC843] text-[#1A1A1A]"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div> */}
-
-
-            {/* Consent Checkboxes
-            <div className="text-left space-y-3 bg-gray-50 p-4 rounded-2xl border-2 border-gray-100">
-              <label className="flex items-start gap-3 text-[11px] text-gray-700">
-                <input
-                  type="checkbox"
-                  checked={appLaunchConsent}
-                  onChange={(e) => setAppLaunchConsent(e.target.checked)}
-                  required
-                  className="mt-1 w-4 h-4 accent-[#FFC843] flex-shrink-0"
-                />
-                <span>
-                  {t('form.appLaunchConsent')}{" "}
-                  <Link href="/datenschutz" className="text-[#F68B28] hover:underline">
-                    {t('form.privacyLink')}
-                  </Link>
-                  <span className="text-[#F68B28] ml-1">*</span>
-                </span>
-              </label>
-
-              <label className="flex items-start gap-3 text-[11px] text-gray-700">
-                <input
-                  type="checkbox"
-                  checked={marketingConsent}
-                  onChange={(e) => setMarketingConsent(e.target.checked)}
-                  className="mt-1 w-4 h-4 accent-[#FFC843] flex-shrink-0"
-                />
-                <span>{t('form.marketingConsent')}</span>
-              </label>
-            </div> */}
-
-
-            {/* Error Message */}
-            {/* {error && (
-              <p className="text-red-600 bg-red-50 px-4 py-2 rounded-full text-sm text-center border-2 border-red-200">
-                {error}
-              </p>
-            )}
-
+          {/* CTA Button + social proof */}
+          <div className="flex flex-col items-center md:items-center gap-4 w-full">
             <button
-              type="submit"
-              disabled={loading || !appLaunchConsent || cooldown}
-              className="w-full h-14 bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full text-lg font-semibold transition-all hover:scale-[1.02] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              onClick={scrollToWaitlist}
+              className="bg-[#F57B10] hover:bg-[#E46C02] text-white rounded-full px-14 py-3.5 font-semibold text-base transition-colors inline-flex items-center gap-2 shadow-md"
             >
-              {loading ? t("joiningButton") : cooldown ? t("joiningButton") : t("buttonJoinWaitlist")}
-              <ArrowRight className="w-5 h-5" />
+              {t("buttonJoinWaitlist")}
+              <ArrowRight className="w-4 h-4" />
             </button>
+            <p className="text-sm text-gray-400">{t("waitlistCountText")}</p>
+          </div>
 
-            <p className="text-xs text-gray-500 text-center">
-              {t('form.requiredNote')}
-            </p>
-          </form>
-          )} */}
-
-          <p className="text-sm text-gray-500 mb-6">{t("waitlistCountText")}</p>
-
-
+          {/* Trust pills — mobile only */}
+          <div className="flex flex-row justify-center gap-2 w-full md:hidden mt-2">
+            <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-sm text-xs font-medium text-[#1E1E1E]">
+              🔒 Insured rentals
+            </div>
+            <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-sm text-xs font-medium text-[#1E1E1E]">
+              ✅ Verified users
+            </div>
+          </div>
           {/* App Store Badges */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
+          <div className="flex items-center gap-2">
             <img
-              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              src="/app_store.svg"
               alt="Download on App Store"
-              className="h-10 opacity-50 cursor-not-allowed"
+              style={{ width: '200px', height: 'auto' }}
+              className="opacity-50 cursor-not-allowed"
             />
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              src="/playstore.svg"
               alt="Get it on Google Play"
-              className="h-10 opacity-50 cursor-not-allowed"
+              style={{ width: '170px', height: 'auto' }}
+              className="opacity-50 cursor-not-allowed"
             />
           </div>
+
+        </div>
+       
+
+        {/* Right Side — Phone Mockup, desktop only */}
+        <div className="hidden md:flex justify-center items-center">
+          <img
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/755531a16_image.png"
+            alt="Relengo App"
+            className="w-auto max-h-[650px] object-contain drop-shadow-2xl"
+          />
         </div>
 
-
-        {/* Right Side - Phone Mockup Image */}
-        <div className="flex-shrink-0 hidden lg:block">
-          <div className="relative">
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/755531a16_image.png"
-              alt="Relengo App Preview"
-              className="w-[340px] h-auto drop-shadow-2xl"
-            />
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#FFC843] rounded-full opacity-30 blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#54B9D1] rounded-full opacity-30 blur-2xl" />
-          </div>
-        </div>
       </div>
     </section>
   );
