@@ -20,6 +20,7 @@ export default function FinalCTA() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [cooldown, setCooldown] = useState(false);
+  const locale = window.location.pathname.split("/")[1] || "en"; // "de" or "en"
 
 
 
@@ -48,6 +49,13 @@ export default function FinalCTA() {
         signedUpAt: serverTimestamp(),
         source: "hero-section",
         createdAt: serverTimestamp(),
+      });
+
+      // send confirmation email via OneSignal
+      await fetch(`/${locale}/api/send-confirmation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name, locale }), // 👈 add locale here
       });
 
       toast.success(t("toastSuccess"));
