@@ -20,8 +20,7 @@ export default function FinalCTA() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [cooldown, setCooldown] = useState(false);
-  const locale = window.location.pathname.split("/")[1] || "en"; // "de" or "en"
-
+  const locale = typeof window !== "undefined" ? window.location.pathname.split("/")[1] || "en": "en";
 
 
   const handleSubmit = async (e: React.FormEvent) => {
