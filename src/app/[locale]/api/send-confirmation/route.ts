@@ -1,4 +1,3 @@
-export const runtime = "edge";
 import { NextRequest, NextResponse } from "next/server";
 
 function buildEmailHtml(locale: "de" | "en", name: string, unsubscribeUrl: string): string {
