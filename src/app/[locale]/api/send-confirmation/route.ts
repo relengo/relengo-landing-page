@@ -183,6 +183,7 @@ function buildEmailHtml(locale: "de" | "en", name: string, unsubscribeUrl: strin
 }
 
 export async function POST(req: NextRequest) {
+try {
   const { email, name, locale } = await req.json();
   if (!email) return NextResponse.json({ error: "No email" }, { status: 400 });
 
@@ -226,6 +227,10 @@ export async function POST(req: NextRequest) {
 
   const msgData = await msgRes.json();
   if (!msgRes.ok) return NextResponse.json({ error: msgData }, { status: 500 });
-
+  
   return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("send-confirmation CRASH:", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
 }
