@@ -75,10 +75,34 @@ interface JsonLdProps {
   locale: string;
 }
 
+export function FaqJsonLd({ locale }: JsonLdProps) {
+  const isDE = locale === 'de';
+  const faq = isDE ? faqDe : faqEn;
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+
 export default function JsonLd({ locale }: JsonLdProps) {
   const isDE = locale === 'de';
   const pageUrl = `${BASE_URL}/${locale}`;
-  const faq = isDE ? faqDe : faqEn;
 
   const websiteSchema = {
     '@context': 'https://schema.org',
@@ -133,20 +157,7 @@ export default function JsonLd({ locale }: JsonLdProps) {
     },
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
-
-  const schemas = [websiteSchema, organizationSchema, appSchema, faqSchema];
+  const schemas = [websiteSchema, organizationSchema, appSchema];
 
   return (
     <>

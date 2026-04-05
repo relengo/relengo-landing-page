@@ -36,6 +36,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+
+  if (!locales.includes(locale)) {
+    notFound();
+  }
+
   const isDE = locale === 'de';
 
   const title = isDE
@@ -82,11 +87,11 @@ export async function generateMetadata({
       images: [`${BASE_URL}/Relengo_OG.png`],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       googleBot: {
-        index: true,
-        follow: true,
+        index: false,
+        follow: false,
       },
     },
   };
