@@ -1,14 +1,29 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowRight, CheckCircle, Mail, Building2 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 
+const CATEGORY_KEYS = [
+  "do-it-yourself",
+  "event-setup",
+  "sports",
+  "entertainment",
+  "music-production",
+  "outdoor-activities",
+  "photography",
+  "construction-work",
+  "travel",
+  "other",
+];
+
 export default function ForBusiness() {
   const t = useTranslations("ForBusiness");
-  const categories: string[] = t.raw("categories");
+  const locale = useLocale();
+  const categoryLabels: string[] = t.raw("categories");
+  const categoryMap = Object.fromEntries(CATEGORY_KEYS.map((key, i) => [key, categoryLabels[i]]));
 
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -21,9 +36,9 @@ export default function ForBusiness() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const toggleCategory = (cat: string) => {
+  const toggleCategory = (key: string) => {
     setSelectedCategories((prev) =>
-      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
     );
   };
 
@@ -47,6 +62,9 @@ export default function ForBusiness() {
         phone: phone || null,
         categories: selectedCategories,
         message: message || null,
+        consentGiven: true,
+        consentTimestamp: serverTimestamp(),
+        privacyPolicyVersion: "2026-04",
         createdAt: serverTimestamp(),
       });
 
@@ -99,26 +117,22 @@ export default function ForBusiness() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Name + Company */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <input
-                        type="text"
-                        placeholder={t("form.namePlaceholder")}
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        className="w-full h-14 px-5 rounded-2xl border border-gray-200 bg-[#FAF7F2] text-[#1A1A1A] placeholder:text-gray-400 focus:outline-none focus:border-[#F57B10] focus:bg-white transition"
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder={t("form.companyPlaceholder")}
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                        required
-                        className="w-full h-14 px-5 rounded-2xl border border-gray-200 bg-[#FAF7F2] text-[#1A1A1A] placeholder:text-gray-400 focus:outline-none focus:border-[#F57B10] focus:bg-white transition"
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      placeholder={t("form.namePlaceholder")}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="w-full h-14 px-5 rounded-2xl border border-gray-200 bg-[#FAF7F2] text-[#1A1A1A] placeholder:text-gray-400 focus:outline-none focus:border-[#F57B10] focus:bg-white transition"
+                    />
+                    <input
+                      type="text"
+                      placeholder={t("form.companyPlaceholder")}
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      required
+                      className="w-full h-14 px-5 rounded-2xl border border-gray-200 bg-[#FAF7F2] text-[#1A1A1A] placeholder:text-gray-400 focus:outline-none focus:border-[#F57B10] focus:bg-white transition"
+                    />
                   </div>
 
                   {/* Email + Phone */}
@@ -144,18 +158,18 @@ export default function ForBusiness() {
                   <div>
                     <p className="text-sm font-semibold text-[#1A1A1A] mb-3">{t("form.categoriesLabel")}</p>
                     <div className="flex flex-wrap gap-2">
-                      {categories.map((cat) => (
+                      {CATEGORY_KEYS.map((key) => (
                         <button
-                          key={cat}
+                          key={key}
                           type="button"
-                          onClick={() => toggleCategory(cat)}
+                          onClick={() => toggleCategory(key)}
                           className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
-                            selectedCategories.includes(cat)
+                            selectedCategories.includes(key)
                               ? "bg-[#F57B10] border-[#F57B10] text-white"
                               : "bg-white border-gray-200 text-[#66615D] hover:border-[#F57B10] hover:text-[#F57B10]"
                           }`}
                         >
-                          {cat}
+                          {categoryMap[key]}
                         </button>
                       ))}
                     </div>
@@ -180,7 +194,7 @@ export default function ForBusiness() {
                     />
                     <span>
                       {t("form.consentText")}{" "}
-                      <Link href="datenschutz" className="underline hover:text-[#F57B10]">
+                      <Link href={`/${locale}/datenschutz`} className="underline hover:text-[#F57B10]">
                         {t("form.privacyLink")}
                       </Link>
                       .
@@ -207,7 +221,6 @@ export default function ForBusiness() {
             <div className="space-y-6">
               <div className="bg-[#FAF7F2] rounded-3xl p-8">
                 <h3 className="text-lg font-bold text-[#1A1A1A] mb-6">{t("contact.title")}</h3>
-
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-[#FFC843] rounded-full flex items-center justify-center flex-shrink-0">
