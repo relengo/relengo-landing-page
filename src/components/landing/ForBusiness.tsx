@@ -36,14 +36,23 @@ export default function ForBusiness() {
     }
     setLoading(true);
     try {
-      const res = await fetch("/api/business-inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, company, email, phone, categories: selectedCategories, message }),
+      const { getDb } = await import("@/lib/firebase");
+      const { collection, addDoc, serverTimestamp } = await import("firebase/firestore");
+      const db = getDb();
+
+      await addDoc(collection(db, "businessInquiries"), {
+        name,
+        company,
+        email,
+        phone: phone || null,
+        categories: selectedCategories,
+        message: message || null,
+        createdAt: serverTimestamp(),
       });
-      if (!res.ok) throw new Error("Request failed");
+
       setSubmitted(true);
-    } catch {
+    } catch (err) {
+      console.error("business inquiry error:", err);
       setError(t("form.genericError"));
     } finally {
       setLoading(false);
