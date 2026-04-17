@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1.0,
   }));
 
-  const subRoutes = ['impressum', 'datenschutz', 'agb', 'cookie-settings'];
+  const subRoutes = ['impressum', 'datenschutz', 'agb', 'cookie-settings', 'for-business'];
   const subPages = locales.flatMap((locale) =>
     subRoutes.map((route) => ({
       url: `${BASE_URL}/${locale}/${route}`,

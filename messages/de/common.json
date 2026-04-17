@@ -237,6 +237,52 @@
     }
   },
   
+  "ForBusiness": {
+    "badge": "Für Unternehmen",
+    "headline": "Bring dein Inventar zu Relengo",
+    "subheadline": "Wir bauen die Zukunft des Peer-to-Peer-Verleihs – und haben große Pläne für Unternehmen. Sag uns, was du anbieten möchtest, und wir melden uns, wenn B2C startet.",
+    "form": {
+      "title": "Nimm Kontakt auf",
+      "namePlaceholder": "Vollständiger Name",
+      "companyPlaceholder": "Unternehmensname",
+      "emailPlaceholder": "Geschäftliche E-Mail",
+      "phonePlaceholder": "Telefonnummer (optional)",
+      "categoriesLabel": "Was möchtest du anbieten?",
+      "messagePlaceholder": "Erzähl uns mehr über dein Inventar, Volumen oder deine Fragen (optional)",
+      "consentText": "Ich stimme zu, dass Relengo meine Daten zur Beantwortung dieser Anfrage speichert, gemäß der",
+      "privacyLink": "Datenschutzerklärung",
+      "submitButton": "Anfrage senden",
+      "submittingButton": "Wird gesendet...",
+      "genericError": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+      "consentRequired": "Bitte bestätige, dass du unserer Datenschutzrichtlinie zustimmst."
+    },
+    "success": {
+      "title": "Danke für deine Nachricht!",
+      "message": "Wir haben deine Anfrage erhalten und melden uns, wenn B2C live geht."
+    },
+    "contact": {
+      "title": "Direkt kontaktieren",
+      "emailLabel": "E-Mail",
+      "email": "support@relengo.app",
+      "responseTimeLabel": "Antwortzeit",
+      "responseTime": "Wir antworten in der Regel innerhalb von 2 Werktagen.",
+      "comingSoonLabel": "Demnächst",
+      "comingSoonText": "B2C-Listings sind in unserer Roadmap. Frühe Partner erhalten bevorzugten Zugang."
+    },
+    "categories": [
+      "Heimwerken & Renovierung",
+      "Eventausstattung",
+      "Sport",
+      "Unterhaltung",
+      "Musikproduktion",
+      "Outdoor-Aktivitäten",
+      "Fotografie",
+      "Bauarbeiten",
+      "Reisen",
+      "Sonstiges"
+    ]
+  },
+
   "CookieConsent": {
     "title": "Cookie-Einstellungen",
     "description": "Wir nutzen Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Einige sind notwendig für die Funktion der Seite, andere helfen uns, die Nutzung zu verstehen und zu optimieren.",
