@@ -52,19 +52,17 @@ export default function ForBusiness() {
     setLoading(true);
     try {
       const { getDb } = await import("@/lib/firebase");
-      const { collection, addDoc, serverTimestamp } = await import("firebase/firestore");
+      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
       const db = getDb();
 
-      await addDoc(collection(db, "businessInquiries"), {
+      await setDoc(doc(db, "businessInquiries", email.toLowerCase()), {
         name,
-        company,
         email,
-        phone: phone || null,
-        categories: selectedCategories,
-        message: message || null,
-        consentGiven: true,
-        consentTimestamp: serverTimestamp(),
-        privacyPolicyVersion: "2026-04",
+        ...(company ? { company } : {}),
+        ...(phone ? { phone } : {}),
+        ...(selectedCategories.length > 0 ? { categories: selectedCategories } : {}),
+        message: message.trim(),
+        source: "landing-page",
         createdAt: serverTimestamp(),
       });
 
@@ -181,6 +179,7 @@ export default function ForBusiness() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     rows={4}
+                    required
                     className="w-full px-5 py-4 rounded-2xl border border-gray-200 bg-[#FAF7F2] text-[#1A1A1A] placeholder:text-gray-400 focus:outline-none focus:border-[#F57B10] focus:bg-white transition resize-none"
                   />
 
