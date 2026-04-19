@@ -32,9 +32,9 @@ export default function Footer() {
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/4228a2497_relengo_logo_logo_1.png"
+              src="/logo.svg"
               alt="Relengo"
-              className="h-12 w-auto mb-2 mx-auto md:mx-0"
+              className="h-8 w-auto mb-2 mx-auto md:mx-0"
             />
             <p className="text-gray-600 text-sm">{t('tagline')}</p>
           </div>

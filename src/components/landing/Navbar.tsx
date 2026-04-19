@@ -10,15 +10,12 @@ import { useLanguageSwitcher } from "@/hooks/useLanguageSwitcher";
 export default function Navbar() {
   const t = useTranslations("Navbar");
   const { currentLocale, switchLanguage } = useLanguageSwitcher();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const otherLocale = currentLocale === 'de' ? 'en' : 'de';
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      
       // Clear hash from URL if user scrolled away from the section
       if (window.location.hash) {
         const targetId = window.location.hash.substring(1);
@@ -46,15 +43,13 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
-  const handleLanguageSwitch = () => {
-    switchLanguage(otherLocale);
-    setMobileOpen(false);
-  };
 
+
+  const isLaunched = process.env.NEXT_PUBLIC_LAUNCHED === 'true';
 
   return (
     <nav
-      className="fixed top-12 left-0 right-0 z-50 bg-white shadow-sm"
+      className={`fixed ${isLaunched ? 'top-0' : 'top-12'} left-0 right-0 z-50 bg-white shadow-sm`}
     >
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
@@ -69,24 +64,24 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <a
-            href="#how-it-works"
+          <Link
+            href={`/${currentLocale}#how-it-works`}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors"
           >
             {t('howItWorks')}
-          </a>
-          <a
-            href="#categories"
+          </Link>
+          <Link
+            href={`/${currentLocale}#categories`}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors"
           >
             {t('categories')}
-          </a>
-          <a
-            href="#about"
+          </Link>
+          <Link
+            href={`/${currentLocale}#about`}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors"
           >
             {t('about')}
-          </a>
+          </Link>
           <button
             onClick={() => switchLanguage(otherLocale)}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors font-medium"
@@ -122,27 +117,27 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden absolute top-20 left-0 right-0 bg-white border-b shadow-lg">
           <div className="flex flex-col p-6 gap-4">
-            <a
-              href="#how-it-works"
+            <Link
+              href={`/${currentLocale}#how-it-works`}
               className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2"
               onClick={() => setMobileOpen(false)}
             >
               {t('howItWorks')}
-            </a>
-            <a
-              href="#categories"
+            </Link>
+            <Link
+              href={`/${currentLocale}#categories`}
               className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2"
               onClick={() => setMobileOpen(false)}
             >
               {t('categories')}
-            </a>
-            <a
-              href="#about"
+            </Link>
+            <Link
+              href={`/${currentLocale}#about`}
               className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2"
               onClick={() => setMobileOpen(false)}
             >
               {t('about')}
-            </a>
+            </Link>
             <button
               onClick={scrollToWaitlist}
               className="bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full py-3 font-medium transition-colors"
