@@ -18,6 +18,7 @@ const poppins = Poppins({
 
 const locales = ['en', 'de']; // Define supported locales here
 const BASE_URL = 'https://relengo.app';
+const isLaunched = process.env.NEXT_PUBLIC_LAUNCHED === 'true';
 
 // Define the props for your async layout
 interface LocaleLayoutProps {
@@ -87,11 +88,11 @@ export async function generateMetadata({
       images: [`${BASE_URL}/Relengo_OG.png`],
     },
     robots: {
-      index: false,
-      follow: false,
+      index: isLaunched,
+      follow: isLaunched,
       googleBot: {
-        index: false,
-        follow: false,
+        index: isLaunched,
+        follow: isLaunched,
       },
     },
   };
@@ -122,9 +123,11 @@ export default async function RootLayout({
       </head>
       <body className={`${poppins.className} bg-[#FAF7F2] antialiased`}>
         <div className="flex flex-col">
-          <div className="sticky top-0 z-50 w-full bg-[#FFC843]/80 text-[#1A1A1A] text-sm font-medium text-center py-2 px-4">
-            {bannerMessage} 
-          </div>
+          {!isLaunched && (
+            <div className="sticky top-0 z-50 w-full bg-[#FFC843]/80 text-[#1A1A1A] text-sm font-medium text-center py-2 px-4">
+              {bannerMessage}
+            </div>
+          )}
         
         <NextIntlClientProvider messages={messages} locale={locale}>
           {children}
