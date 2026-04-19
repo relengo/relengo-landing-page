@@ -64,24 +64,24 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <a
+          <Link
             href={`/${currentLocale}#how-it-works`}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors"
           >
             {t('howItWorks')}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`/${currentLocale}#categories`}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors"
           >
             {t('categories')}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`/${currentLocale}#about`}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors"
           >
             {t('about')}
-          </a>
+          </Link>
           <button
             onClick={() => switchLanguage(otherLocale)}
             className="text-gray-600 hover:text-[#1A1A1A] transition-colors font-medium"
@@ -117,27 +117,27 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden absolute top-20 left-0 right-0 bg-white border-b shadow-lg">
           <div className="flex flex-col p-6 gap-4">
-            <a
+            <Link
               href={`/${currentLocale}#how-it-works`}
               className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2"
               onClick={() => setMobileOpen(false)}
             >
               {t('howItWorks')}
-            </a>
-            <a
+            </Link>
+            <Link
               href={`/${currentLocale}#categories`}
               className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2"
               onClick={() => setMobileOpen(false)}
             >
               {t('categories')}
-            </a>
-            <a
+            </Link>
+            <Link
               href={`/${currentLocale}#about`}
               className="text-lg text-gray-600 hover:text-[#1A1A1A] py-2"
               onClick={() => setMobileOpen(false)}
             >
               {t('about')}
-            </a>
+            </Link>
             <button
               onClick={scrollToWaitlist}
               className="bg-[#F68B28] hover:bg-[#e07a1f] text-white rounded-full py-3 font-medium transition-colors"
