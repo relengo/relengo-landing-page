@@ -63,7 +63,7 @@ export default function ForBusiness() {
         ...(selectedCategories.length > 0 ? { categories: selectedCategories } : {}),
         message: message.trim(),
         source: "landing-page",
-        consentGiven: true,
+        consentGiven: consent,
         createdAt: serverTimestamp(),
       });
 
