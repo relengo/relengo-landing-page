@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
@@ -75,16 +76,18 @@ export default function HeroSection() {
           </div>
           {/* App Store Badges */}
           <div className="flex items-center gap-2">
-            <img
+            <Image
               src="/app_store.svg"
               alt="Download on App Store"
-              style={{ width: '200px', height: 'auto' }}
+              width={200}
+              height={60}
               className="opacity-50 cursor-not-allowed"
             />
-            <img
+            <Image
               src="/playstore.svg"
               alt="Get it on Google Play"
-              style={{ width: '170px', height: 'auto' }}
+              width={170}
+              height={50}
               className="opacity-50 cursor-not-allowed"
             />
           </div>
@@ -94,9 +97,11 @@ export default function HeroSection() {
 
         {/* Right Side — Phone Mockup, desktop only */}
         <div className="hidden md:flex justify-center items-center">
-          <img
+          <Image
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/755531a16_image.png"
             alt="Relengo App"
+            width={320}
+            height={650}
             className="w-auto max-h-[650px] object-contain drop-shadow-2xl"
           />
         </div>

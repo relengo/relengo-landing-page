@@ -1,5 +1,6 @@
 'use client';
 import React from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const baseCategories = [
@@ -103,9 +104,11 @@ export default function Categories() {
 
               {/* Image */}
               <div className="relative h-36 overflow-hidden">
-                <img
+                <Image
                   src={category.image}
                   alt={category.name}
+                  width={224}
+                  height={144}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
@@ -113,9 +116,11 @@ export default function Categories() {
 
                 {/* Icon Badge */}
                 <div className="absolute top-4 right-4 w-14 h-14 rounded-xl flex items-center justify-center backdrop-blur-sm bg-white/90">
-                  <img
+                  <Image
                     src={category.iconUrl}
                     alt={category.name}
+                    width={56}
+                    height={56}
                     className="rounded-[15px] w-full h-full object-cover"
                   />
                 </div>

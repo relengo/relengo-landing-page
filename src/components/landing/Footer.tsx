@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Instagram, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useLanguageSwitcher } from "@/hooks/useLanguageSwitcher";
@@ -20,10 +21,9 @@ const XLogo = ({ size = 24, ...props }) => (
 
 export default function Footer() {
   const t = useTranslations("Footer");
-  const { currentLocale, switchLanguage, getLocaleSwitchHref } = useLanguageSwitcher();
+  const { currentLocale, switchLanguage } = useLanguageSwitcher();
   
   const otherLocale = currentLocale === 'de' ? 'en' : 'de';
-  const switchLocaleHref = getLocaleSwitchHref(otherLocale);
 
   return (
     <footer className="py-6 px-3 lg:px-6 bg-[#FDF8ED]">
@@ -31,9 +31,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
-            <img
+            <Image
               src="/logo.svg"
               alt="Relengo"
+              width={120}
+              height={32}
               className="h-8 w-auto mb-2 mx-auto md:mx-0"
             />
             <p className="text-gray-600 text-sm">{t('tagline')}</p>

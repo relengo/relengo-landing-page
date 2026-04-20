@@ -2,11 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
 
 export default function CookieSettings() {
   const t = useTranslations('CookieSettings');
-  const params = useParams();
   
   const [preferences, setPreferences] = useState({
     necessary: true,

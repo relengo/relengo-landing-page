@@ -111,7 +111,7 @@ export default async function RootLayout({
 
 
   // Validate the locale
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as string)) notFound();
 
   const messages = await getMessages({ locale });
 

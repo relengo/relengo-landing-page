@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from "react";
 // No imports needed for native HTML
-import { ArrowRight, Smartphone, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import Image from "next/image";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -12,7 +13,7 @@ export default function FinalCTA() {
   const t = useTranslations("FinalCTA");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone] = useState("");
   const [interest, setInterest] = useState("both");
   const [appLaunchConsent, setAppLaunchConsent] = useState(true);
   const [marketingConsent, setMarketingConsent] = useState(false);
@@ -95,9 +96,11 @@ export default function FinalCTA() {
           <div className="relative z-20">
             {/* Logo */}
               <Link href={`/`} className="flex items-center justify-center">
-                <img
+                <Image
                   src="/app-icon.svg"
                   alt="Relengo App Icon"
+                  width={78}
+                  height={78}
                   className="h-[78px] w-auto"
                 />
               </Link>
@@ -251,16 +254,18 @@ export default function FinalCTA() {
 
             {/* App Store Badges */}
             <div className="flex justify-center gap-4 mt-8">
-              <img
+              <Image
                 src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                 alt={t('appStoreAlt')}
+                width={160}
+                height={48}
                 className="opacity-65 h-12 cursor-not-allowed"
               />
-
-
-              <img
+              <Image
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                 alt={t('googlePlayAlt')}
+                width={160}
+                height={48}
                 className="opacity-65 h-12 cursor-not-allowed"
               />
             </div>

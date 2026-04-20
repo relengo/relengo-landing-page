@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useLanguageSwitcher } from "@/hooks/useLanguageSwitcher";
@@ -54,9 +55,11 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${currentLocale}`} className="flex items-center">
-          <img
+          <Image
             src="/logo.svg"
             alt="Relengo"
+            width={120}
+            height={32}
             className="h-8 w-auto"
           />
         </Link>

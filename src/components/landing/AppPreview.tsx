@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
-import { Search } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+
+interface Feature {
+  title: string;
+  description: string;
+  categories?: string[];
+}
 
 export default function AppPreview() {
   const t = useTranslations("AppPreview");
@@ -26,16 +32,18 @@ export default function AppPreview() {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
           {/* Phone Mockup Image */}
           <div className="relative">
-            <img
+            <Image
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/755531a16_image.png"
               alt={t('phoneAlt')}
+              width={320}
+              height={640}
               className="w-[320px] h-auto drop-shadow-2xl"
             />
           </div>
 
           {/* Features List */}
           <div className="max-w-md space-y-8">
-            {features.map((feature: any, index: number) => (
+            {features.map((feature: Feature, index: number) => (
               <div key={index} className="bg-white rounded-2xl p-6 shadow-sm">
                 <h4 className="text-orange-400 mb-4 text-base font-bold">
                   {feature.title}
@@ -45,8 +53,7 @@ export default function AppPreview() {
                 </p>
                 {feature.categories && (
                   <div className="flex gap-3 flex-wrap">
-                    {feature.categories.map((cat: string, catIndex: number) => {
-                      const icons = ["🔧", "📷", "🎸", "⛺", "⚽", "🎉"];
+                    {feature.categories.map((cat: string) => {
                       return (
                         <div key={cat} className="flex flex-col items-center">
                           {/* You might want to use the actual icons based on the category */}

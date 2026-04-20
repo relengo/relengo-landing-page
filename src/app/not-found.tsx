@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NotFound() {
   return (
@@ -90,13 +91,15 @@ export default function NotFound() {
         {/* Navbar */}
         <nav className="navbar">
           <div className="navbar-content">
-            <a href="/de">
-              <img
+            <Link href="/de">
+              <Image
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692723a092e75b6d98e7c6e5/4228a2497_relengo_logo_logo_1.png"
                 alt="Relengo"
+                width={140}
+                height={56}
                 className="logo"
               />
-            </a>
+            </Link>
           </div>
         </nav>
 
@@ -108,9 +111,9 @@ export default function NotFound() {
             <p className="description">
               Es sieht so aus, als hättest du einen leeren Ort gefunden.
             </p>
-            <a href="/de" className="button">
+            <Link href="/de" className="button">
               Zurück zur Startseite
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -120,11 +123,11 @@ export default function NotFound() {
             <div className="emoji">🌵</div>
             <h1 className="title">Oops!</h1>
             <p className="description">
-              It seems like you've found an empty place.
+              It seems like you&apos;ve found an empty place.
             </p>
-            <a href="/en" className="button">
+            <Link href="/en" className="button">
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
         

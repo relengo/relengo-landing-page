@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const baseTestimonials = [
@@ -50,7 +51,7 @@ export default function Testimonials() {
 
         {/* Testimonials */}
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <div key={testimonial.name} className="relative group">
               <div className="bg-[#FDF8ED] rounded-3xl p-8 h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 {/* Quote Icon */}
@@ -61,7 +62,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <p className="text-lg text-[#1A1A1A] leading-relaxed mb-8">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
 
                 {/* Stars */}
@@ -76,9 +77,11 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <img
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.name}
+                    width={56}
+                    height={56}
                     className="w-14 h-14 rounded-full object-cover ring-4 ring-white"
                   />
                   <div>
