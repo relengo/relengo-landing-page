@@ -52,10 +52,10 @@ export default function ForBusiness() {
     setLoading(true);
     try {
       const { getDb } = await import("@/lib/firebase");
-      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+      const { collection, addDoc, serverTimestamp } = await import("firebase/firestore");
       const db = getDb();
 
-      await setDoc(doc(db, "businessInquiries", email.toLowerCase()), {
+      await addDoc(collection(db, "businessInquiries"), {
         name,
         email,
         ...(company ? { company } : {}),
@@ -63,6 +63,7 @@ export default function ForBusiness() {
         ...(selectedCategories.length > 0 ? { categories: selectedCategories } : {}),
         message: message.trim(),
         source: "landing-page",
+        consentGiven: consent,
         createdAt: serverTimestamp(),
       });
 
