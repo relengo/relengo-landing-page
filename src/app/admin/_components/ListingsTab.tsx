@@ -48,7 +48,7 @@ export default function ListingsTab() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [rejecting, setRejecting] = useState(false);
+  const [showRejectPanel, setShowRejectPanel] = useState(false);
   const [rejectionReasons, setRejectionReasons] = useState<string[]>([]);
 
   useEffect(() => {
@@ -96,13 +96,13 @@ export default function ListingsTab() {
     if (!res.ok) { alert('Failed to reject listing. Please try again.'); return; }
     setListings((prev) => prev.filter((l) => l.id !== id));
     setSelectedId(null);
-    setRejecting(false);
+    setShowRejectPanel(false);
     setRejectionReasons([]);
   }
 
   function handleBack() {
     setSelectedId(null);
-    setRejecting(false);
+    setShowRejectPanel(false);
     setRejectionReasons([]);
   }
 
@@ -129,8 +129,8 @@ export default function ListingsTab() {
         onBack={handleBack}
         onApprove={() => handleApprove(selected.id)}
         onReject={() => handleReject(selected.id)}
-        rejecting={rejecting}
-        setRejecting={setRejecting}
+        showRejectPanel={showRejectPanel}
+        setShowRejectPanel={setShowRejectPanel}
         rejectionReasons={rejectionReasons}
         setRejectionReasons={setRejectionReasons}
       />
@@ -206,8 +206,8 @@ function ListingDetail({
   onBack,
   onApprove,
   onReject,
-  rejecting,
-  setRejecting,
+  showRejectPanel,
+  setShowRejectPanel,
   rejectionReasons,
   setRejectionReasons,
 }: {
@@ -215,8 +215,8 @@ function ListingDetail({
   onBack: () => void;
   onApprove: () => void;
   onReject: () => void;
-  rejecting: boolean;
-  setRejecting: (v: boolean) => void;
+  showRejectPanel: boolean;
+  setShowRejectPanel: (v: boolean) => void;
   rejectionReasons: string[];
   setRejectionReasons: (v: string[]) => void;
 }) {
@@ -258,6 +258,7 @@ function ListingDetail({
                 {listing.imageUrls.map((img, i) => (
                   <button
                     key={i}
+                    aria-label={`View image ${i + 1}`}
                     onClick={() => setSelectedImg(i)}
                     className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-colors ${
                       selectedImg === i ? 'border-[#1A1A1A]' : 'border-transparent'
@@ -336,7 +337,7 @@ function ListingDetail({
         </div>
       </div>
 
-      {rejecting ? (
+      {showRejectPanel ? (
         <div className="bg-white rounded-2xl border border-red-200 p-4 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-[#1A1A1A]">Select rejection reasons</p>
@@ -347,13 +348,15 @@ function ListingDetail({
             )}
           </div>
 
-          <div className="divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden max-h-72 overflow-y-auto">
+          <div role="group" aria-label="Rejection reasons" className="divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden max-h-72 overflow-y-auto">
             {REJECTION_REASONS.map((reason) => {
               const checked = rejectionReasons.includes(reason);
               const [label, detail] = reason.split(' — ');
               return (
                 <button
                   key={reason}
+                  role="checkbox"
+                  aria-checked={checked}
                   onClick={() => toggleReason(reason)}
                   className={`w-full flex items-start gap-3 px-4 py-3 text-left transition-colors ${
                     checked ? 'bg-red-50' : 'bg-white hover:bg-gray-50'
@@ -386,7 +389,7 @@ function ListingDetail({
               Confirm Rejection
             </button>
             <button
-              onClick={() => { setRejecting(false); setRejectionReasons([]); }}
+              onClick={() => { setShowRejectPanel(false); setRejectionReasons([]); }}
               className="px-5 text-sm text-gray-500 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
             >
               Cancel
@@ -396,7 +399,7 @@ function ListingDetail({
       ) : (
         <div className="flex gap-3">
           <button
-            onClick={() => setRejecting(true)}
+            onClick={() => setShowRejectPanel(true)}
             className="flex-1 bg-red-600 text-white font-medium py-3.5 rounded-2xl text-sm hover:bg-red-700 transition-colors"
           >
             Reject

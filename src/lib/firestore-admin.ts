@@ -10,7 +10,13 @@ function getServiceAccount(): ServiceAccount {
   return JSON.parse(raw);
 }
 
+let cachedToken: { value: string; expiresAt: number } | null = null;
+
 async function getAccessToken(): Promise<string> {
+  if (cachedToken && Date.now() < cachedToken.expiresAt) {
+    return cachedToken.value;
+  }
+
   const sa = getServiceAccount();
   const now = Math.floor(Date.now() / 1000);
 
@@ -56,11 +62,16 @@ async function getAccessToken(): Promise<string> {
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
+    body: new URLSearchParams({
+      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      assertion: jwt,
+    }),
   });
 
   if (!res.ok) throw new Error(`Token exchange failed: ${await res.text()}`);
   const { access_token } = (await res.json()) as { access_token: string };
+
+  cachedToken = { value: access_token, expiresAt: Date.now() + 55 * 60 * 1000 };
   return access_token;
 }
 
@@ -74,7 +85,7 @@ export async function patchListing(id: string, fields: Record<string, FirestoreV
   const mask = Object.keys(fields)
     .map((f) => `updateMask.fieldPaths=${encodeURIComponent(f)}`)
     .join('&');
-  const url = `https://firestore.googleapis.com/v1/projects/${project_id}/databases/(default)/documents/listings/${id}?${mask}`;
+  const url = `https://firestore.googleapis.com/v1/projects/${project_id}/databases/(default)/documents/listings/${encodeURIComponent(id)}?${mask}`;
 
   const res = await fetch(url, {
     method: 'PATCH',
